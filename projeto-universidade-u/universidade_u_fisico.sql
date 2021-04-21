@@ -82,3 +82,10 @@ use universidade_u;
 select * from aluno;
 select * from aluno where sexo = 'M' AND ativo_sn = 1 AND valor_pago_curso < 1000;
 select * from aluno where sexo = 'F' OR idade >= 20;
+
+-- Select - Filtros com o operador Between
+
+use universidade_u;
+
+select * from aluno where idade between 20 and 60;
+select * from aluno where data_inscricao_curso between '2021-01-01' and '2021-04-21';
