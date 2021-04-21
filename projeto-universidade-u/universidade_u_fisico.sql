@@ -1,5 +1,7 @@
 /* universidade_u_logico: */
 
+-- Criar a tabela ALUNO
+
 CREATE TABLE ALUNO (
     idade int,
     sexo char(1),
@@ -11,7 +13,11 @@ CREATE TABLE ALUNO (
     ativo_sn int
 );
 
+-- usar o SCHEMA universidade_u
+
 use universidade_u;
+
+-- Insert - Inserindo registros em tabelas
 
 insert into aluno(
 	sexo, idade, data_inscricao_curso, telefone, valor_pago_curso,
@@ -45,10 +51,26 @@ insert into aluno(
     'Pedro'
 );
 
+
+-- Select - Selecionando registro em tabelas
+
 use universidade_u;
 
 select * from aluno;
 
+select nome, idade, telefone from aluno;
+
+-- Select - Filtros com operadores de comparação
+
 use universidade_u;
 
-select nome, idade, telefone from aluno;
+select * from aluno where sexo = 'F';
+select * from aluno where valor_pago_curso < 900;
+select * from aluno where valor_pago_curso > 900;
+
+select * from aluno where valor_pago_curso <= 900;
+select * from aluno;
+select * from aluno where valor_pago_curso >= 900;
+
+select * from aluno where ativo_sn = '1';
+select * from aluno where ativo_sn = '0';
