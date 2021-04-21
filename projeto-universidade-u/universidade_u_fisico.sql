@@ -98,3 +98,16 @@ select * from aluno where nome = 'Filipe' OR nome = 'Katarina' OR nome = 'Pedro'
 
 select * from aluno where nome in ('Filipe', 'Katarina', 'Pedro');
 select * from aluno where nome not in ('Filipe', 'Katarina', 'Pedro');
+
+-- Select - Filtros com o operador Like
+
+use universidade_u;
+
+select * from aluno where nome like '%e';
+select * from aluno where nome like '%li%';
+select * from aluno where nome like 'k%';
+select * from aluno where nome like 'f%e';
+select * from aluno where nome like '_ed';
+select * from aluno where nome like '_edr_';
+select * from aluno where nome like '_____e';
+select * from aluno where nome like '%n_';
