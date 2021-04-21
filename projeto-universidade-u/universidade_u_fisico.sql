@@ -89,3 +89,12 @@ use universidade_u;
 
 select * from aluno where idade between 20 and 60;
 select * from aluno where data_inscricao_curso between '2021-01-01' and '2021-04-21';
+
+-- Select - Filtros com o operadore In
+
+use universidade_u;
+
+select * from aluno where nome = 'Filipe' OR nome = 'Katarina' OR nome = 'Pedro';
+
+select * from aluno where nome in ('Filipe', 'Katarina', 'Pedro');
+select * from aluno where nome not in ('Filipe', 'Katarina', 'Pedro');
