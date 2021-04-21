@@ -74,3 +74,11 @@ select * from aluno where valor_pago_curso >= 900;
 
 select * from aluno where ativo_sn = '1';
 select * from aluno where ativo_sn = '0';
+
+-- Select - Filtros com operadores Lógicos
+
+use universidade_u;
+
+select * from aluno;
+select * from aluno where sexo = 'M' AND ativo_sn = 1 AND valor_pago_curso < 1000;
+select * from aluno where sexo = 'F' OR idade >= 20;
