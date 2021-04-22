@@ -122,3 +122,12 @@ select * from aluno order by nome ASC;
 select * from aluno order by nome DESC; 
 select * from aluno order by valor_pago_curso DESC; 
 select * from aluno order by sexo ASC, idade DESC;
+
+-- Update - Atualizando registros de tabelas
+use universidade_u;
+
+select * from aluno;
+
+update aluno set ativo_sn = 0 where nome = 'Katarina';
+update aluno set valor_pago_curso = 600 where nome = 'Filipe';
+update aluno set telefone = '07 2123-4579' where nome = 'Louise';
