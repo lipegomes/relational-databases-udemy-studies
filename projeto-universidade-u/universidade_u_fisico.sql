@@ -172,3 +172,23 @@ delete from aluno where ativo_sn = 0;
 delete from aluno where idade in (40, 55) or sexo = 'F';
 delete from aluno;
 
+-- Descrevendo e alterando a estrutura de tabelas
+
+use universidade_u;
+
+select * from aluno;
+
+desc aluno;
+
+/* add inclusão */
+alter table aluno add cpf varchar(11);
+
+alter table aluno add email varchar(150) after idade;
+
+/* modify modificar */
+alter table aluno modify column cpf varchar(14);
+
+/* drop remover */
+alter table aluno drop column cpf;
+
+alter table aluno add cpf varchar(14) after email;
