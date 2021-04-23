@@ -233,3 +233,116 @@ alter table aluno add id_aluno int primary key auto_increment;
 desc aluno;
 
 select * from aluno where id_aluno = 1;
+
+--  1FN - Trabalhando com atributos Compostos
+
+use universidade_u;
+
+select * from aluno;
+
+alter table aluno add logradouro varchar(100);
+alter table aluno add numero varchar(10);
+alter table aluno add complemento varchar(20);
+alter table aluno add bairro varchar(100);
+alter table aluno add cidade varchar(50);
+alter table aluno add estado char(2);
+
+update
+	aluno
+set
+	logradouro = 'Rua da Lagoa Bonita',
+	numero = '01',
+	complemento = 'casa 01',
+	bairro = 'Primavera',
+	cidade = 'Rio de Janeiro',
+	estado = 'RJ'
+
+where
+	id_aluno = 1;
+    
+update
+	aluno
+set
+	logradouro = 'Avenida Doutor Onofre',
+	numero = '200',
+	complemento = 'apt 12',
+	bairro = 'Palácio de Cristal',
+	cidade = 'Curitiba',
+	estado = 'PR'
+
+where
+	id_aluno = 2;
+    
+update
+	aluno
+set
+	logradouro = 'Rua das Oliveiras',
+	numero = '14',
+	complemento = 'apt 34',
+	bairro = 'Morumbi',
+	cidade = 'São Paulo',
+	estado = 'SP'
+where
+	id_aluno = 3;
+    
+update
+	aluno
+set
+	logradouro = 'Avenida das Araras',
+	numero = '77',
+	complemento = 'casa 04',
+	bairro = 'Boiadeiro',
+	cidade = 'Campo Grande',
+	estado = 'MS'
+where
+	id_aluno = 4;
+    
+update
+	aluno
+set
+	logradouro = 'Rua doos políticos',
+	numero = '171',
+	complemento = 'casa 02',
+	bairro = 'Lago Paranoa',
+	cidade = 'Brasília',
+	estado = 'DF'
+where
+	id_aluno = 5;
+    
+update
+	aluno
+set
+	logradouro = 'Avenida das raposas',
+	numero = '01',
+	complemento = '14',
+	bairro = 'Charitas',
+	cidade = 'Niterói',
+	estado = 'RJ'
+where
+	id_aluno = 6;
+    
+update
+	aluno
+set
+	logradouro = 'Parcão gaucho chê',
+	numero = '10',
+	complemento = 'apt 22',
+	bairro = 'Beira rio',
+	cidade = 'Porto Alegre',
+	estado = 'RS'
+where
+	id_aluno = 7;
+
+update
+	aluno
+set
+	logradouro = 'Rua da colina',
+	numero = '13',
+	complemento = 'casa 13',
+	bairro = 'Campo Grande',
+	cidade = 'Rio de Janeiro',
+	estado = 'RJ'
+where
+	id_aluno = 8;
+
+select * from aluno;
