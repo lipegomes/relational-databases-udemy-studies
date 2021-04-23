@@ -10,5 +10,7 @@ CREATE TABLE ALUNO (
     nome varchar(25),
     ativo_sn int,
     Campo varchar(11),
-    email varchar(150)
+    email varchar(150),
+    cpf varchar(14),
+    id_aluno int auto_increment PRIMARY KEY
 );

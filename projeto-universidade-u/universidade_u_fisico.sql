@@ -192,3 +192,44 @@ alter table aluno modify column cpf varchar(14);
 alter table aluno drop column cpf;
 
 alter table aluno add cpf varchar(14) after email;
+
+-- 1FN - Trabalhando com chaves primárias simples
+
+use universidade_u;
+
+select * from aluno;
+
+update aluno set cpf = '000.000.000-01' where nome = 'Filipe';
+update aluno set cpf = '000.000.000-02' where nome = 'Louise';
+update aluno set cpf = '000.000.000-03' where nome = 'Katarina';
+update aluno set cpf = '000.000.000-04' where nome = 'Pedro';
+update aluno set cpf = '000.000.000-05' where nome = 'Emmanuel';
+update aluno set cpf = '000.000.000-06' where nome = 'Joanna';
+update aluno set cpf = '000.000.000-07' where nome = 'Barbara';
+update aluno set cpf = '000.000.000-08' where nome = 'Nikolas';
+
+update aluno set email = 'filipe@foobar.com' where nome = 'Filipe';
+update aluno set email = 'louise@foobar.com' where nome = 'Louise';
+update aluno set email = 'katarina@foobar.com' where nome = 'Katarina';
+update aluno set email = 'pedro@foobar.com' where nome = 'Pedro';
+update aluno set email = 'emmanuel@foobar.com' where nome = 'Emmanuel';
+update aluno set email = 'joanna@foobar.com' where nome = 'Joanna';
+update aluno set email = 'barbara@foobar.com' where nome = 'Barbara';
+update aluno set email = 'nikolas@foobar.com' where nome = 'Nikolas';
+
+desc aluno;
+
+alter table aluno modify cpf varchar(14) primary key;
+alter table aluno drop cpf;
+
+desc aluno;
+
+alter table aluno add column cpf varchar(14);
+
+desc aluno;
+
+alter table aluno add id_aluno int primary key auto_increment;
+
+desc aluno;
+
+select * from aluno where id_aluno = 1;
