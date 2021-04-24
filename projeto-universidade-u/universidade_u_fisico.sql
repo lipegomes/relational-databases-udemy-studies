@@ -349,3 +349,37 @@ select * from aluno;
 
 -- 1FN - Trabalhando com atributos Multivalorados
 
+use universidade_u;
+
+select * from aluno;
+
+desc aluno;
+
+select * from aluno;
+
+alter table aluno modify column telefone varchar(60);
+
+select * from aluno;
+
+update aluno set telefone = '01 2222-3333, 01 2222-4444' where id_aluno = 1;
+update aluno set telefone = '10 4444-4444, 10 4236-2799' where id_aluno = 5;
+
+-- -----------------------------------------------------
+-- Table `universidade_u`.`telefone`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `universidade_u`.`telefone` (
+  `id_telefone` INT NOT NULL AUTO_INCREMENT,
+  `numero` VARCHAR(20) NULL,
+  `tipo` CHAR(3) NULL,
+  PRIMARY KEY (`id_telefone`));
+
+select * from telefone;
+
+insert into telefone(numero, tipo)values('01 2222-3333', 'res');
+insert into telefone(numero, tipo)values('01 2222-4444', 'com');
+
+select * from telefone;
+
+alter table aluno drop column telefone;
+
+select * from alunos;
