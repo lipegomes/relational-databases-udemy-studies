@@ -13,6 +13,7 @@ The codes contained in the repository are written based on my learning in the co
 - [MySQL Workbench](https://www.mysql.com/products/workbench/)
 - [Pgadmin4](https://www.pgadmin.org/)
 - [SQL Server Management Studio](https://docs.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+- [Dbeaver](https://dbeaver.io/)
 
 ### Tools:
 
