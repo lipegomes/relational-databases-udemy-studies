@@ -346,3 +346,6 @@ where
 	id_aluno = 8;
 
 select * from aluno;
+
+-- 1FN - Trabalhando com atributos Multivalorados
+
