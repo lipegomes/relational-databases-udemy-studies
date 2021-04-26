@@ -382,4 +382,24 @@ select * from telefone;
 
 alter table aluno drop column telefone;
 
-select * from alunos;
+select * from aluno;
+
+-- Cardinalidade 1:n - Modelagem Física
+
+use universidade_u;
+
+select * from aluno;
+
+select id_aluno, nome from aluno;
+select * from telefone;
+
+alter table telefone add column fk_id_aluno int;
+
+select * from telefone;
+
+alter table telefone add constraint fk_aluno_telefone
+foreign key(fk_id_aluno) references aluno(id_aluno);
+
+select * from telefone;
+
+desc telefone;
