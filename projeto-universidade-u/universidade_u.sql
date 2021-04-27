@@ -426,3 +426,28 @@ insert into telefone(numero, tipo, fk_id_aluno) values('08 5533-9917', 'res', 7)
 insert into telefone(numero, tipo, fk_id_aluno) values('01 2133-1313', 'res', 8);
 
 select * from telefone;
+
+-- Cardinalidade de Relacionamentos 1:1
+
+use universidade_u;
+
+select * from aluno;
+
+create table endereco (
+	id_endereco int auto_increment primary key,
+    logradouro varchar(100),
+    numero varchar(10),
+    complemento varchar(20),
+    bairro varchar(100),
+    cidade varchar(50),
+    estado char(2),
+    fk_id_aluno int
+);
+
+alter table endereco add constraint fk_aluno_enredeco
+	foreign key (fk_id_aluno)
+    references aluno (id_aluno);
+
+select * from endereco;
+
+desc endereco;
