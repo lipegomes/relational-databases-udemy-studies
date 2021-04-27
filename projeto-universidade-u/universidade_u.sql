@@ -259,6 +259,7 @@ set
 
 where
 	id_aluno = 1;
+
     
 update
 	aluno
@@ -403,3 +404,27 @@ foreign key(fk_id_aluno) references aluno(id_aluno);
 select * from telefone;
 
 desc telefone;
+
+-- Cardinalidade 1:n - Inserindo registros relacionados
+
+use universidade_u;
+
+select * from aluno;
+ 
+select * from telefone;
+  
+select * from telefone;
+
+update telefone set fk_id_aluno = 1 where numero in ('01 2222-3333', '01 2222-4444');
+
+select * from telefone;
+
+insert into telefone(numero, tipo, fk_id_aluno) values('07 2123-4579', 'res', 2);
+insert into telefone(numero, tipo, fk_id_aluno) values('07 2123-4579', 'res', 3);
+insert into telefone(numero, tipo, fk_id_aluno) values('04 5221-0062', 'res', 4);
+insert into telefone(numero, tipo, fk_id_aluno) values('10 4444-4444', 'res', 5);
+insert into telefone(numero, tipo, fk_id_aluno) values('01 2214-0011', 'res', 6);
+insert into telefone(numero, tipo, fk_id_aluno) values('08 5533-9917', 'res', 7);
+insert into telefone(numero, tipo, fk_id_aluno) values('01 2133-1313', 'res', 8);
+
+select * from telefone;
