@@ -451,3 +451,57 @@ alter table endereco add constraint fk_aluno_enredeco
 select * from endereco;
 
 desc endereco;
+
+-- Cardinalidade 1:1 - Inserindo registros relacionados (com Insert/Select)
+
+use universidade_u;
+
+select * from aluno;
+
+select * from endereco;
+
+insert into endereco(logradouro, numero, complemento, bairro, cidade, estado, fk_id_aluno)
+select 
+	logradouro, numero, complemento, bairro, cidade, estado, id_aluno 
+from
+	aluno;
+    
+select * from endereco;
+
+alter table aluno drop column endereco;
+alter table aluno drop column logradouro;
+alter table aluno drop column numero;
+alter table aluno drop column complemento;
+alter table aluno drop column bairro;
+alter table aluno drop column cidade;
+alter table aluno drop column estado;
+
+select * from aluno;
+
+select * from endereco where fk_id_aluno = 1;
+select * from endereco where fk_id_aluno = 7;
+select * from endereco where fk_id_aluno = 7 or fk_id_aluno = 5 or fk_id_aluno = 4;
+
+
+-- Aumentando a complexidade do projeto
+
+use universidade_u;
+
+select * from aluno;
+
+create table curso(
+	id_curso int auto_increment primary key,
+    descricao varchar(50)
+);
+
+select * from curso;
+
+insert into curso(descricao)values('MySQL');
+insert into curso(descricao)values('Python e Django');
+insert into curso(descricao)values('Linux');
+insert into curso(descricao)values('DevSecOps');
+insert into curso(descricao)values('Java e SpringBoot 2');
+insert into curso(descricao)values('Front End com React e Angular');
+insert into curso(descricao)values('Dev Full Cycle');
+
+select * from curso;
