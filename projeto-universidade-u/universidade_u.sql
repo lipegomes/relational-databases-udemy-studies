@@ -410,9 +410,7 @@ desc telefone;
 use universidade_u;
 
 select * from aluno;
- 
-select * from telefone;
-  
+
 select * from telefone;
 
 update telefone set fk_id_aluno = 1 where numero in ('01 2222-3333', '01 2222-4444');
