@@ -1,5 +1,3 @@
-/* universidade_u_logico: */
-
 -- Criar a tabela ALUNO
 
 CREATE TABLE ALUNO (
@@ -505,3 +503,23 @@ insert into curso(descricao)values('Front End com React e Angular');
 insert into curso(descricao)values('Dev Full Cycle');
 
 select * from curso;
+
+-- Cardinalidade n:n - Modelagem Física
+
+use universidade_u;
+
+create table aluno_curso(
+	id_aluno_curso int auto_increment primary key,
+    fk_id_aluno int,
+    fk_id_curso int
+);
+
+select * from aluno_curso;
+
+alter table aluno_curso add constraint fk_aluno_curso
+foreign key(fk_id_aluno) references aluno(id_aluno);
+
+alter table aluno_curso add constraint fk_curso_aluno
+foreign key(fk_id_curso) references curso(id_curso);
+
+desc aluno_curso;
