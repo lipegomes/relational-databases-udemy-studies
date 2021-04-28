@@ -523,3 +523,24 @@ alter table aluno_curso add constraint fk_curso_aluno
 foreign key(fk_id_curso) references curso(id_curso);
 
 desc aluno_curso;
+
+--  Cardinalidade n:n - Inserindo registros relacionados
+
+use universidade_u;
+
+select * from aluno;
+select * from curso;
+
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(1, 1);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(1, 2);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(1, 5);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(2, 7);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(3, 3);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(4, 4);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(5, 2);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(5, 1);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(6, 5);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(7, 4);
+insert into aluno_curso(fk_id_aluno, fk_id_curso)values(8, 6);
+
+select * from aluno_curso;
