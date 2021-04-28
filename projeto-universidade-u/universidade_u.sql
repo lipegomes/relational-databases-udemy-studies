@@ -544,3 +544,33 @@ insert into aluno_curso(fk_id_aluno, fk_id_curso)values(7, 4);
 insert into aluno_curso(fk_id_aluno, fk_id_curso)values(8, 6);
 
 select * from aluno_curso;
+
+-- Tipo de dado ENUM
+
+use universidade_u;
+
+select * from telefone;
+
+alter table telefone drop column tipo;
+
+select * from telefone;
+
+alter table telefone add tipo enum('com', 'res' ,'cel');
+
+select * from telefone;
+
+update telefone set tipo ='res' where id_telefone = 5; 
+update telefone set tipo ='com' where id_telefone = 6; 
+update telefone set tipo ='res' where id_telefone = 7; 
+update telefone set tipo ='res' where id_telefone = 8; 
+update telefone set tipo ='res' where id_telefone = 9; 
+update telefone set tipo ='res' where id_telefone = 10; 
+update telefone set tipo ='res' where id_telefone = 11; 
+update telefone set tipo ='res' where id_telefone = 12; 
+update telefone set tipo ='res' where id_telefone = 13; 
+
+select * from telefone;
+
+insert into telefone(numero, tipo, fk_id_aluno) values('01 90000-0000', 'cel', 1);
+
+select * from telefone;
