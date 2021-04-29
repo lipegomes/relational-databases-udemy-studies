@@ -602,3 +602,43 @@ alter table telefone modify column fk_id_aluno int not null;
 select * from telefone;
 
 desc telefone;
+
+select * from endereco;
+
+desc endereco;
+
+alter table endereco modify column logradouro varchar(100) not null;
+alter table endereco modify column numero varchar(10) not null;
+alter table endereco modify column bairro varchar(100) not null;
+alter table endereco modify column cidade varchar(50) not null;
+alter table endereco modify column estado char(2) not null;
+alter table endereco modify column fk_id_aluno int not null;
+
+desc endereco;
+
+select * from aluno;
+
+desc aluno;
+
+alter table aluno modify column cpf varchar(14) not null;
+alter table aluno modify column sexo char(1) not null;
+alter table aluno modify column idade int not null;
+alter table aluno modify column nome varchar(100) not null;
+alter table aluno modify column email varchar(150) not null;
+alter table aluno modify column data_inscricao_curso date not null;
+alter table aluno modify column valor_pago_curso float(10,2) not null;
+alter table aluno modify column ativo_sn int not null;
+
+desc aluno;
+
+select * from aluno;
+
+select * from curso;
+
+desc curso;
+
+alter table curso modify column descricao varchar(50) not null;
+
+desc curso;
+
+select * from aluno_curso;
