@@ -574,3 +574,31 @@ select * from telefone;
 insert into telefone(numero, tipo, fk_id_aluno) values('01 90000-0000', 'cel', 1);
 
 select * from telefone;
+
+-- NULL e NOT NULL
+
+use universidade_u;
+
+select * from telefone;
+
+desc telefone;
+
+alter table telefone modify column numero varchar(20) not null;
+
+select * from telefone;
+
+desc telefone;
+
+select * from telefone where numero is null;
+
+select * from telefone where numero is not null;
+
+select * from telefone;
+
+alter table telefone modify column tipo enum('res', 'com', 'cel') not null;
+
+alter table telefone modify column fk_id_aluno int not null;
+
+select * from telefone;
+
+desc telefone;
