@@ -642,3 +642,15 @@ alter table curso modify column descricao varchar(50) not null;
 desc curso;
 
 select * from aluno_curso;
+
+-- Unique Constraint
+
+use universidade_u;
+
+select * from aluno;
+
+alter table aluno add constraint uc_aluno_cpf unique(cpf);
+
+alter table aluno add constraint uc_aluno_email unique(email);
+
+desc aluno;
