@@ -719,3 +719,39 @@ from
 	aluno;
 
 select min(valor_pago_curso) as valor_pago from aluno where ativo_sn != 0;
+
+-- Select - Trabalhando com as funções Ceil, Floor, Truncate e Round
+
+use universidade_u;
+
+select * from aluno;
+
+/* ceil - arredonda o valor para cima */
+select ceil (25.3) as valor;
+
+/* floor - arredonda o valor para baixo */
+select floor(99.99) as valor;
+
+/* truncate - trunca a fração */
+select truncate(11.5789, 1) as valor;
+
+/* round - arredondamento: < 5 para baixo, > 5 para cima */
+select round(67.899, 2) as valor1;
+select round(9.12, 1) as valor2;
+
+select * from aluno;
+
+select
+	nome,
+	ceil(valor_pago_curso) as valor
+from
+	aluno
+where
+	id_aluno in (1, 4, 7, 8);
+
+select
+	round(avg(valor_pago_curso), 2) as media_valores_pago
+from
+	aluno
+where
+	id_aluno in(2, 3, 5, 6);
