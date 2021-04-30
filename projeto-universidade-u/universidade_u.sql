@@ -705,3 +705,17 @@ select max(valor_pago_curso), min(valor_pago_curso), sum(valor_pago_curso) from 
 
 select count(*) from aluno where sexo = 'F';
 select count(*) from aluno where sexo = 'M';
+
+-- Select - Trabalhando com alias (apelidando colunas)
+use universidade_u;
+
+select * from aluno;
+
+select
+	max(valor_pago_curso) as valor_max,
+	min(valor_pago_curso) valor_min,
+	sum(valor_pago_curso) as total_soma
+from
+	aluno;
+
+select min(valor_pago_curso) as valor_pago from aluno where ativo_sn != 0;
