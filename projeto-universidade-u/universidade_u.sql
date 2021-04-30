@@ -1735,3 +1735,32 @@ from
 	endereco
 group by
 	estado;
+
+-- Projeto Universidade U - Atendendo aos demais requisitos do cliente
+
+use universidade_u;
+
+/* estados com mais alunos - alunos por estado */
+select
+	estado,
+	count(*) as total
+from
+	endereco
+group by
+	estado
+order by
+	total desc;
+
+/* cursos mais vendidos - alunos por curso */
+select
+	fk_id_curso,
+	count(*) as total
+from
+	aluno_curso
+group by
+	fk_id_curso;
+	
+select
+	distinct(fk_id_curso)
+from
+	aluno_curso;
