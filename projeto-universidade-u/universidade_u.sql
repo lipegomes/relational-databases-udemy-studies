@@ -654,3 +654,22 @@ alter table aluno add constraint uc_aluno_cpf unique(cpf);
 alter table aluno add constraint uc_aluno_email unique(email);
 
 desc aluno;
+
+-- Cardinalidade 1:1 - Garantindo a restrição de 1 para 1 com Unique Constraint
+
+use universidade_u;
+
+select * from aluno;
+select * from endereco;
+
+insert into endereco(logradouro, numero, complemento, bairro, cidade, estado, fk_id_aluno) values('Avenida das raposas', 34, null, 'Charitas', 'Niterói', 'RJ', 6);
+
+select * from endereco;
+
+delete from endereco where id_endereco = 16;
+
+select * from endereco;
+
+alter table endereco add constraint uc_endereco_fk_id_aluno unique(fk_id_aluno);
+
+desc endereco; 
