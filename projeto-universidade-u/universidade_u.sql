@@ -1735,10 +1735,8 @@ from
 	endereco
 group by
 	estado;
-
 -- Projeto Universidade U - Atendendo aos demais requisitos do cliente
-
-use universidade_u;
+ use universidade_u;
 
 /* estados com mais alunos - alunos por estado */
 select
@@ -1759,8 +1757,813 @@ from
 	aluno_curso
 group by
 	fk_id_curso;
-	
+
 select
 	distinct(fk_id_curso)
 from
 	aluno_curso;
+-- Recriando banco dados
+ CREATE SCHEMA IF NOT EXISTS `universidade_u` DEFAULT CHARACTER SET
+utf8 ;
+
+USE `universidade_u` ;
+
+CREATE TABLE IF NOT EXISTS `universidade_u`.`aluno` ( `id_aluno` INT NOT NULL AUTO_INCREMENT,
+`cpf` VARCHAR(14) NOT NULL,
+`sexo` CHAR(1) NOT NULL,
+`idade` INT NOT NULL,
+`nome` VARCHAR(100) NOT NULL,
+`email` VARCHAR(150) NOT NULL,
+`data_inscricao_curso` DATE NOT NULL,
+`valor_pago_curso` FLOAT(10,
+2) NOT NULL,
+`ativo_sn` INT NOT NULL,
+PRIMARY KEY (`id_aluno`),
+UNIQUE INDEX `uc_aluno_cpf` (`cpf` ASC) VISIBLE,
+UNIQUE INDEX `uc_aluno_email` (`email` ASC) VISIBLE);
+
+CREATE TABLE IF NOT EXISTS `universidade_u`.`curso` ( `id_curso` INT NOT NULL AUTO_INCREMENT,
+`descricao` VARCHAR(50) NOT NULL,
+PRIMARY KEY (`id_curso`));
+
+CREATE TABLE IF NOT EXISTS `universidade_u`.`aluno_curso` ( `id_aluno_curso` INT NOT NULL AUTO_INCREMENT,
+`fk_id_aluno` INT NULL DEFAULT NULL,
+`fk_id_curso` INT NULL DEFAULT NULL,
+PRIMARY KEY (`id_aluno_curso`),
+INDEX `fk_aluno_curso` (`fk_id_aluno` ASC) VISIBLE,
+INDEX `fk_curso_aluno` (`fk_id_curso` ASC) VISIBLE,
+CONSTRAINT `fk_aluno_curso` FOREIGN KEY (`fk_id_aluno`) REFERENCES `universidade_u`.`aluno` (`id_aluno`),
+CONSTRAINT `fk_curso_aluno` FOREIGN KEY (`fk_id_curso`) REFERENCES `universidade_u`.`curso` (`id_curso`));
+
+CREATE TABLE IF NOT EXISTS `universidade_u`.`endereco` ( `id_endereco` INT NOT NULL AUTO_INCREMENT,
+`logradouro` VARCHAR(100) NOT NULL,
+`numero` VARCHAR(10) NOT NULL,
+`complemento` VARCHAR(20) NULL DEFAULT NULL,
+`bairro` VARCHAR(100) NOT NULL,
+`cidade` VARCHAR(50) NOT NULL,
+`estado` CHAR(2) NOT NULL,
+`fk_id_aluno` INT NOT NULL,
+PRIMARY KEY (`id_endereco`),
+UNIQUE INDEX `uc_endereco_fk_id_aluno` (`fk_id_aluno` ASC) VISIBLE,
+CONSTRAINT `fk_aluno_enredeco` FOREIGN KEY (`fk_id_aluno`) REFERENCES `universidade_u`.`aluno` (`id_aluno`));
+
+CREATE TABLE IF NOT EXISTS `universidade_u`.`telefone` ( `id_telefone` INT NOT NULL AUTO_INCREMENT,
+`numero` VARCHAR(20) NOT NULL,
+`fk_id_aluno` INT NOT NULL,
+`tipo` ENUM('res',
+'com',
+'cel') NOT NULL,
+PRIMARY KEY (`id_telefone`),
+INDEX `fk_aluno_telefone` (`fk_id_aluno` ASC) VISIBLE,
+CONSTRAINT `fk_aluno_telefone` FOREIGN KEY (`fk_id_aluno`) REFERENCES `universidade_u`.`aluno` (`id_aluno`));
+
+select
+	*
+from
+	aluno;
+
+select
+	*
+from
+	endereco;
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua da Lagoa Bonita',
+1,
+'casa 01',
+'Primavera',
+'Rio de Janeiro',
+'RJ',
+1);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida Doutor Onofre',
+200,
+'apt 12',
+'Palácio de Cristal',
+'Curitiba',
+'PR',
+2);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua das Oliveiras',
+14,
+'apt 34',
+'Morumbi',
+'São Paulo',
+'SP',
+3);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida das Araras',
+77,
+'casa azul',
+'Boiadeiro',
+'Campo Grande',
+'MS',
+4);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua dos políticos',
+171,
+'casa 02',
+'Lago Paranoa',
+'Brasilia',
+'DF',
+5);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida das raposas',
+34,
+null,
+'Charitas',
+'Niterói',
+'RJ',
+6);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Parcão gaucho chê',
+10,
+'apt 22',
+'Beira Rio',
+'Porto Alegre',
+'RS',
+7);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua da Colina',
+13,
+'casa 13',
+'Campo Grande',
+'Rio de Janeiro',
+'RJ',
+8);
+
+desc aluno;
+
+use universidade_u;
+
+select
+	*
+from
+	aluno;
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.000-01',
+'M',
+32,
+'James',
+'james@foobar.com',
+'2021-04-14',
+250,
+1);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.033-02',
+'F',
+17,
+'Mary',
+'mary.cat@foobar.com',
+'2020-02-03',
+820,
+1);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.011-00',
+'M',
+23,
+'John',
+'johnjo@foobar.com',
+'2019-05-12',
+835,
+0);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.000-45',
+'F',
+36,
+'Patricia',
+'patpotato@foobar.com',
+'2020-08-04',
+600,
+1);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.001-11',
+'M',
+25,
+'Robert',
+'mr.robert@foobar.com',
+'2021-01-26',
+700,
+1);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.066-12',
+'F',
+19,
+'Jennifer',
+'jenni_lovelace@foobar.com',
+'2021-03-01',
+820,
+1);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.000-88',
+'M',
+44,
+'Michael',
+'michael@foobar.com',
+'2019-6-23',
+650,
+0);
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	idade,
+	nome,
+	email,
+	data_inscricao_curso,
+	valor_pago_curso,
+	ativo_sn)
+values( '000.000.000-67',
+'F',
+18,
+'Linda',
+'lili@foobar.com',
+'2021-01-11',
+250,
+1);
+
+select
+	*
+from
+	aluno;
+
+select
+	*
+from
+	endereco;
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua da Lagoa Bonita',
+1,
+'casa 01',
+'Primavera',
+'Rio de Janeiro',
+'RJ',
+1);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida Doutor Onofre',
+200,
+'apt 12',
+'Palácio de Cristal',
+'Curitiba',
+'PR',
+2);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua das Oliveiras',
+14,
+'apt 34',
+'Morumbi',
+'São Paulo',
+'SP',
+3);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida das Araras',
+77,
+'casa azul',
+'Boiadeiro',
+'Campo Grande',
+'MS',
+4);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua dos políticos',
+171,
+'casa 02',
+'Lago Paranoa',
+'Brasilia',
+'DF',
+5);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Avenida das raposas',
+34,
+null,
+'Charitas',
+'Niterói',
+'RJ',
+6);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Parcão gaucho chê',
+10,
+'apt 22',
+'Beira Rio',
+'Porto Alegre',
+'RS',
+7);
+
+insert
+	into
+	endereco(logradouro,
+	numero,
+	complemento,
+	bairro,
+	cidade,
+	estado,
+	fk_id_aluno)
+values('Rua da Colina',
+13,
+'casa 13',
+'Campo Grande',
+'Rio de Janeiro',
+'RJ',
+8);
+
+select
+	*
+from
+	aluno_curso;
+
+select
+	*
+from
+	telefone;
+
+select
+	*
+from
+	curso;
+
+insert
+	into
+	curso(descricao)
+values('Desenvolvimento Mobile');
+
+insert
+	into
+	curso(descricao)
+values('Lógica de programação');
+
+insert
+	into
+	curso(descricao)
+values('Python e Django para Web');
+
+insert
+	into
+	curso(descricao)
+values('Data Science');
+
+insert
+	into
+	curso(descricao)
+values('Machine Learning');
+
+insert
+	into
+	curso(descricao)
+values('Back end com Java e Kotlin');
+
+insert
+	into
+	curso(descricao)
+values('Front End com React, Angular');
+
+insert
+	into
+	curso(descricao)
+values('Linux Specialist');
+
+insert
+	into
+	curso(descricao)
+values('DevSecOps');
+
+select
+	*
+from
+	curso;
+
+select
+	*
+from
+	aluno_curso;
+
+select
+	*
+from
+	telefone;
+
+select
+	*
+from
+	curso;
+
+insert
+	into
+	curso(descricao)
+values('Desenvolvimento Mobile');
+
+insert
+	into
+	curso(descricao)
+values('Lógica de programação');
+
+insert
+	into
+	curso(descricao)
+values('Python e Django para Web');
+
+insert
+	into
+	curso(descricao)
+values('Data Science');
+
+insert
+	into
+	curso(descricao)
+values('Machine Learning');
+
+insert
+	into
+	curso(descricao)
+values('Back end com Java e Kotlin');
+
+insert
+	into
+	curso(descricao)
+values('Front End com React, Angular');
+
+insert
+	into
+	curso(descricao)
+values('Linux Specialist');
+
+insert
+	into
+	curso(descricao)
+values('DevSecOps');
+
+select
+	*
+from
+	curso;
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('01 90001-0000',
+'cel',
+1);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('01 0002-0123',
+'com',
+1);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('02 90002-0220',
+'cel',
+2);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('03 90011-0100',
+'cel',
+3);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('04 90010-0004',
+'cel',
+4);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('05 90000-0505',
+'cel',
+5);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('06 90000-6660',
+'cel',
+6);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('07 90000-0571',
+'cel',
+7);
+
+insert
+	into
+	telefone(numero,
+	tipo,
+	fk_id_aluno)
+values('08 90090-0987',
+'cel',
+8);
+
+select
+	*
+from
+	telefone;
+
+select
+	*
+from
+	aluno_curso;
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(1,
+1);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(1,
+2);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(1,
+5);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(2,
+7);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(3,
+3);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(4,
+4);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(5,
+2);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(5,
+1);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(6,
+5);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(7,
+4);
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso)
+values(8,
+6);
