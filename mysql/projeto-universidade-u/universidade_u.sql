@@ -2588,5 +2588,160 @@ create table gasto(
 	dez float(10,2)
 );
 
+select * from gasto;
+--Select - Projetando os resultados de operações aritméticas
+use universidade_u;
+
+/* soma */
+select
+	(27 + 72) as total_soma;
+
+/* subtracao */
+select
+	(12 - 44) as total_sub;
+
+/* multiplicacao */
+select
+	(7 * 7) as total_mult;
+
+/* divisao */
+select
+	(256 / 23.5) as total_div;
+
+select
+	*
+from
+	gasto;
+
+insert
+	into
+	gasto(ano,
+	tipo,
+	jan,
+	fev,
+	mar,
+	abr,
+	mai,
+	jun,
+	jul,
+	ago,
+	`set`,
+	`out`,
+	nov,
+	dez)
+values('2020',
+'previsto',
+18000,
+17000,
+19000,
+20000,
+17000,
+18000,
+18500,
+18500,
+1800,
+17500,
+18000,
+17000);
+
+insert
+	into
+	gasto(ano,
+	tipo,
+	jan)
+values('2020',
+'realizado',
+18353.20);
+
+update
+	gasto
+set
+	fev = 17555.55
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	mar = 19435.73
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	abr = 22753.12
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	mai = 16198.12
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	jun = 17451.88
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	jul = 18975.40
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	ago = 19163.84
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	`set` = 18132.56
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	`out` = 17667.91
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	nov = 17936.33
+where
+	id_gasto = 2;
+
+update
+	gasto
+set
+	dez = 17125.88
+where
+	id_gasto = 2;
 
 select * from gasto;
+
+select
+	truncate((jan + fev + mar + abr + mai + jun + jul + ago + `set` + `out` + nov + dez), 2) as total_realizado_anual
+from
+	gasto
+where
+	id_gasto = 2;
+
+select
+	truncate((jan + fev + mar + abr + mai + jun + jul + ago + `set` + `out` + nov + dez) / 12 , 2) as total_media_anual
+from
+	gasto
+where
+	id_gasto = 2;
