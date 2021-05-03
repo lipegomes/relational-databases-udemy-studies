@@ -2639,7 +2639,7 @@ values('2020',
 18000,
 18500,
 18500,
-1800,
+18000,
 17500,
 18000,
 17000);
@@ -2745,3 +2745,149 @@ from
 	gasto
 where
 	id_gasto = 2;
+--  (Subquerys) Criando os indicadores de controle de gastos mensais
+use universidade_u;
+
+select
+	*
+from
+	gasto;
+
+select
+	id_gasto
+from
+	gasto
+where
+	ano = 2020
+	and tipo = 'realizado';
+
+select
+	id_gasto
+from
+	gasto
+where
+	ano = 2020
+	and tipo = 'previsto';
+
+select
+	*
+from
+	gasto;
+
+select
+	id_gasto
+from
+	gasto
+where
+	ano = 2020
+	and tipo = 'realizado';
+
+select
+	id_gasto
+from
+	gasto
+where
+	ano = 2020
+	and tipo = 'previsto';
+
+select
+	jan
+from
+	gasto
+where
+	id_gasto = 1;
+
+select
+	jan
+from
+	gasto
+where
+	id_gasto = 2;
+
+select
+	`set`
+from
+	gasto
+where
+	id_gasto = (
+	select
+		id_gasto
+	from
+		gasto
+	where
+		ano = 2020
+		and tipo = 'previsto');
+
+select
+	`set`
+from
+	gasto
+where
+	id_gasto = (
+	select
+		id_gasto
+	from
+		gasto
+	where
+		ano = 2020
+		and tipo = 'realizado');
+
+select
+	(
+	select
+		`set`
+	from
+		gasto
+	where
+		id_gasto = (
+		select
+			id_gasto
+		from
+			gasto
+		where
+			ano = 2020
+			and tipo = 'previsto')) as previsto_set,
+	(
+	select
+		`set`
+	from
+		gasto
+	where
+		id_gasto = (
+		select
+			id_gasto
+		from
+			gasto
+		where
+			ano = 2020
+			and tipo = 'realizado')) as realizado_set;
+		
+select
+	(
+	select
+		dez
+	from
+		gasto
+	where
+		id_gasto = (
+		select
+			id_gasto
+		from
+			gasto
+		where
+			ano = 2020
+			and tipo = 'previsto')) as previsto_set,
+	(
+	select
+		dez
+	from
+		gasto
+	where
+		id_gasto = (
+		select
+			id_gasto
+		from
+			gasto
+		where
+			ano = 2020
+			and tipo = 'realizado')) as realizado_set;
