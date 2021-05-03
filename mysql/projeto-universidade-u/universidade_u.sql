@@ -2994,3 +2994,70 @@ select
 	timestampdiff(YEAR, data_nascimento, curdate()) as idade
 	from
 	aluno;
+-- Selecionando aniversariantes do dia
+use universidade_u;
+
+select
+	id_aluno,
+	nome,
+	data_nascimento,
+	extract(month from data_nascimento) as data_nascimento_mes,
+	extract(day from data_nascimento) as data_nascimento_dia,
+	curdate() as data_atual,
+	extract(month from curdate()) as data_atual_mes,
+	extract(day from curdate()) as data_atual_dia,
+	timestampdiff(year, data_nascimento, curdate()) as idade
+from
+	aluno;
+
+select
+	id_aluno,
+	nome,
+	data_nascimento,
+	extract(month from data_nascimento) as data_nascimento_mes,
+	extract(day from data_nascimento) as data_nascimento_dia,
+	curdate() as data_atual,
+	extract(month from curdate()) as data_atual_mes,
+	extract(day from curdate()) as data_atual_dia,
+	timestampdiff(year, data_nascimento, curdate()) as idade
+from
+	aluno
+where
+	extract(month from data_nascimento) = extract(month from curdate());
+
+select
+	id_aluno,
+	nome,
+	data_nascimento,
+	extract(month from data_nascimento) as data_nascimento_mes,
+	extract(day from data_nascimento) as data_nascimento_dia,
+	curdate() as data_atual,
+	extract(month from curdate()) as data_atual_mes,
+	extract(day from curdate()) as data_atual_dia,
+	timestampdiff(year, data_nascimento, curdate()) as idade
+from
+	aluno
+where
+	extract(month from data_nascimento) = extract(month from curdate())
+	and extract(day from data_nascimento) = extract(day from curdate());
+	
+
+select * from aluno;
+
+update aluno set data_nascimento = '1989-05-03' where id_aluno = 1;
+
+select
+	id_aluno,
+	nome,
+	data_nascimento,
+	extract(month from data_nascimento) as data_nascimento_mes,
+	extract(day from data_nascimento) as data_nascimento_dia,
+	curdate() as data_atual,
+	extract(month from curdate()) as data_atual_mes,
+	extract(day from curdate()) as data_atual_dia,
+	timestampdiff(year, data_nascimento, curdate()) as idade
+from
+	aluno
+where
+	extract(month from data_nascimento) = extract(month from curdate())
+	and extract(day from data_nascimento) = extract(day from curdate());
