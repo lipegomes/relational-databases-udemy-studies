@@ -2912,3 +2912,58 @@ update aluno set data_nascimento = '2003-04-03' where id_aluno = 8;
 alter table aluno modify column data_nascimento date not null;
 
 desc aluno;
+-- Select - Trabalhando com funções de data
+use universidade_u;
+
+/* recuperar a data atual */
+select curdate();
+select current_date();
+
+/* recuperar a data e horas atuais */
+select now();
+
+/* formatando datas
+ * %d - dia dos mês (de 01 até 31)
+ * %D - dia dos mês com sufixo em ingles 
+ * %m - mês (de 1 a 12)
+ * %M - nome do mês em inglês
+ * %y - ano (dois dígitos)
+ * %Y - ano (quatro dígitos)
+ *  */
+select date_format(curdate(), '%d/%m/%Y');
+select date_format(curdate(), '%d-%m-%Y');
+select date_format(curdate(), '%d-%m-%y');
+select date_format(curdate(), '%D-%M-%y');
+select date_format(curdate(), '%D-%M-%Y');
+
+/* extrair parte de data
+ * day, month, year */
+select extract(day from curdate());
+select extract(month from curdate());
+select extract(year from curdate());
+
+select extract(month from '1912-05-26');
+select extract(year from '1912-05-26');
+select extract(day from '1912-05-26');
+
+/* adicionando intervalos de tempo as datas
+ * second, minute, hour, day, month, year */
+select date_add('1956-11-05', interval 4 day);
+select date_add('1956-11-05', interval 9 month);
+select date_add('1956-11-05', interval 65 year);
+
+select date_add('1956-11-05  21:45:26', interval 125 second);
+select date_add('1956-11-05  21:45:26', interval 30 minute);
+select date_add('1956-11-05  21:45:26', interval 48 hour);
+
+select now() as data_hora_atuais, date_add(now(), interval 8 hour) as data_hora_ajustada;
+
+/* calculo de dias entre data */
+select '1918-06-17' as data_nascimento, curdate() as data_atual, datediff(curdate(), '1918-06-17') as diferenca_dias;
+
+/* retorna o número de meses entre duas datas */
+select period_diff('202109', '200109');
+
+/* retorna o dia do ano de uma determinada data */
+select dayofyear('2021-05-03');
+select dayofyear('2021-12-31');
