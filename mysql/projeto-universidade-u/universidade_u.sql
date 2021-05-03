@@ -2967,3 +2967,30 @@ select period_diff('202109', '200109');
 /* retorna o dia do ano de uma determinada data */
 select dayofyear('2021-05-03');
 select dayofyear('2021-12-31');
+-- Calculando a idade com base na data atual e data de nascimento (TimeStamp)
+use universidade_u;
+
+/* timestamp (marca temporal) início à partir da meia-noite do dia 01/01/1970 */
+select
+	timestampdiff(YEAR, '1991-09-18', curdate());
+	
+select * from aluno;
+
+select
+	data_nascimento,
+	curdate() as data_atual,
+	idade,
+	timestampdiff(YEAR, data_nascimento, curdate()) as idade_dinamica
+	from
+	aluno;
+
+alter table aluno drop idade;
+
+select * from aluno;
+
+select
+	data_nascimento,
+	curdate() as data_atual,
+	timestampdiff(YEAR, data_nascimento, curdate()) as idade
+	from
+	aluno;
