@@ -2891,3 +2891,24 @@ select
 		where
 			ano = 2020
 			and tipo = 'realizado')) as realizado_set;
+--  Armazenando a data de nascimento
+use universidade_u;
+
+alter table aluno add data_nascimento date;
+
+desc aluno;
+
+select * from aluno;
+
+update aluno set data_nascimento = '1989-05-01' where id_aluno = 1;
+update aluno set data_nascimento = '2004-08-14' where id_aluno = 2;
+update aluno set data_nascimento = '1998-11-11' where id_aluno = 3;
+update aluno set data_nascimento = '1985-06-28' where id_aluno = 4;
+update aluno set data_nascimento = '1996-10-23' where id_aluno = 5;
+update aluno set data_nascimento = '2002-05-08' where id_aluno = 6;
+update aluno set data_nascimento = '1977-02-24' where id_aluno = 7;
+update aluno set data_nascimento = '2003-04-03' where id_aluno = 8;
+
+alter table aluno modify column data_nascimento date not null;
+
+desc aluno;
