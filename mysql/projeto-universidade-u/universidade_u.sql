@@ -3070,3 +3070,183 @@ alter table aluno_curso add data_inscricao_curso date;
 alter table aluno_curso add valor_pago_curso float(10, 2);
 
 select * from aluno_curso;
+--  Refactoring da data de inscrição no curso e valor pago - parte 2
+use universidade_u;
+
+/* query de update com uma subquery para recuperar os dados */
+select
+	id_aluno,
+	data_inscricao_curso,
+	valor_pago_curso
+from
+	aluno
+where
+	id_aluno = 1;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 1),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 1)
+where
+	fk_id_aluno = 1;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 2),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 2)
+where
+	fk_id_aluno = 2;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 3),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 3)
+where
+	fk_id_aluno = 3;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 4),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 4)
+where
+	fk_id_aluno = 4;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 5),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 5)
+where
+	fk_id_aluno = 5;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 6),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 6)
+where
+	fk_id_aluno = 6;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 7),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 7)
+where
+	fk_id_aluno = 7;
+
+update
+	aluno_curso
+set
+	data_inscricao_curso = (
+	select
+		data_inscricao_curso
+	from
+		aluno
+	where
+		id_aluno = 8),
+	valor_pago_curso = (
+	select
+		valor_pago_curso
+	from
+		aluno
+	where
+		id_aluno = 8)
+where
+	fk_id_aluno = 8;
+
+select * from aluno_curso;
+
+/* remover informações da tabela aluno */
+alter table aluno drop column data_inscricao_curso;
+alter table aluno drop column valor_pago_curso;
+
+select* from aluno;
