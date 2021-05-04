@@ -3061,3 +3061,12 @@ from
 where
 	extract(month from data_nascimento) = extract(month from curdate())
 	and extract(day from data_nascimento) = extract(day from curdate());
+--  Refactoring da data de inscrição no curso e valor pago - parte 1
+use universidade_u;
+
+select data_inscricao_curso, valor_pago_curso from aluno;
+
+alter table aluno_curso add data_inscricao_curso date;
+alter table aluno_curso add valor_pago_curso float(10, 2);
+
+select * from aluno_curso;
