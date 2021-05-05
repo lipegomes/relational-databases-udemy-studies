@@ -3250,3 +3250,101 @@ alter table aluno drop column data_inscricao_curso;
 alter table aluno drop column valor_pago_curso;
 
 select* from aluno;
+-- Default – Valores padrões
+use universidade_u;
+
+select
+	*
+from
+	aluno;
+
+alter table aluno modify column ativo_sn int default 1;
+
+desc aluno;
+
+select
+	*
+from
+	aluno;
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	nome,
+	email,
+	data_nascimento)
+values('000.000.003-22',
+'M',
+'Ohara',
+'oha@foobar.com',
+'1983-11-08');
+
+select
+	*
+from
+	aluno;
+
+select
+	*
+from
+	aluno;
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	nome,
+	email,
+	ativo_sn,
+	data_nascimento)
+values('000.000.040-04',
+'F',
+'Lucy',
+'lilu@foobar.com',
+0,
+'1985-06-22');
+
+select * from aluno;
+
+select * from aluno_curso;
+
+insert into aluno_curso(fk_id_aluno, fk_id_curso, data_inscricao_curso, valor_pago_curso)
+values(9, 7, '2021-03-19', 820);
+
+insert into aluno_curso(fk_id_aluno, fk_id_curso, data_inscricao_curso, valor_pago_curso)
+values(10, 3, '2019-06-03', 835);
+
+select * from aluno_curso;
+
+alter table aluno_curso modify column data_inscricao_curso datetime default current_timestamp;
+
+select * from aluno_curso;
+
+select * from aluno;
+
+insert
+	into
+	aluno(cpf,
+	sexo,
+	nome,
+	email,
+	data_nascimento)
+values('000.000.001-83',
+'M',
+'José',
+'zezinho@foobar.com',
+'1990-07-12');
+
+select * from aluno;
+
+insert
+	into
+	aluno_curso(fk_id_aluno,
+	fk_id_curso,
+	valor_pago_curso)
+values(11,
+5,
+820);
+
+select * from aluno_curso;
