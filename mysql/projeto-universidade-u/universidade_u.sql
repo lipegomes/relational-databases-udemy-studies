@@ -3359,3 +3359,124 @@ alter table aluno_curso add constraint pk_aluno_curso primary key(fk_id_aluno,
 fk_id_curso, data_inscricao_curso);
 
 desc aluno_curso;
+-- Criando a tabela "projeto_funcionario" e inserindo registros iniciais
+use universidade_u;
+
+create table projeto_funcionario(
+	codigo_projeto int,
+	matricula_funcionario int,
+	nome_projeto varchar(100) not null,
+	nome_funcionario varchar(50) not null,
+	funcao_funcinario varchar(50) not null,
+	telefone_funcionario varchar(20) not null,
+	data_criacao_projeto datetime default current_timestamp,
+	horas_estimadas int not null,
+	horas_realizadas int
+);
+
+select * from projeto_funcionario;
+
+alter table projeto_funcionario add constraint pk_projeto_funcionario
+primary key(codigo_projeto, matricula_funcionario);
+
+desc projeto_funcionario;
+
+alter table projeto_funcionario change column funcao_funcinario funcao_funcionario varchar(50) not null;
+
+select * from projeto_funcionario;
+
+insert
+	into
+	projeto_funcionario( codigo_projeto,
+	matricula_funcionario,
+	nome_projeto,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario,
+	horas_estimadas
+	)
+values( 1,
+129,
+'Matricula Online',
+'Stefanie',
+'Analista de Atendimento',
+'01 90000-0555',
+200);
+
+insert
+	into
+	projeto_funcionario( codigo_projeto,
+	matricula_funcionario,
+	nome_projeto,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario,
+	horas_estimadas
+	)
+values( 1,
+39,
+'Matricula Online',
+'Marcia',
+'Gerente de Atendimento',
+'01 90000-0111',
+100
+);
+
+insert
+	into
+	projeto_funcionario( codigo_projeto,
+	matricula_funcionario,
+	nome_projeto,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario,
+	horas_estimadas
+	)
+values( 1,
+95,
+'Matricula Online',
+'Pedro',
+'Desenvolvedor Sênior',
+'01 90000-0222',
+500
+);
+
+insert
+	into
+	projeto_funcionario( codigo_projeto,
+	matricula_funcionario,
+	nome_projeto,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario,
+	horas_estimadas
+	)
+values( 2,
+184,
+'Economia de Papel',
+'Lana',
+'Analista de Qualidade',
+'01 90000-0333',
+200
+);
+
+insert
+	into
+	projeto_funcionario( codigo_projeto,
+	matricula_funcionario,
+	nome_projeto,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario,
+	horas_estimadas
+	)
+values( 3,
+78,
+'Notas Online',
+'Pierre',
+'Analista Administravivo Sênior',
+'01 90000-0444',
+150
+);
+
+select * from projeto_funcionario;
