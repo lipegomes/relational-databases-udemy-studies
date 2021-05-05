@@ -3348,3 +3348,14 @@ values(11,
 820);
 
 select * from aluno_curso;
+-- Primary Key Simples e Primary Key Composta
+use universidade_u;
+
+alter table aluno_curso drop column id_aluno_curso;
+
+select * from aluno_curso;
+
+alter table aluno_curso add constraint pk_aluno_curso primary key(fk_id_aluno,
+fk_id_curso, data_inscricao_curso);
+
+desc aluno_curso;
