@@ -80,3 +80,22 @@ select * from information_schema.tables where table_catalog = 'mercado_y' and ta
 /* listar as colunas de uma tabela */
 select * from information_schema.columns where table_catalog = 'mercado_y' and  table_schema = 'produto' and table_name = 'tb_categoria';
 select * from information_schema.columns where table_catalog = 'mercado_y' and  table_schema = 'produto' and table_name = 'tb_fabricante';
+
+-- Tables parte 2 - Renomeando tabelas e campos já existentes
+
+/* renomear tabela*/
+alter table produto.td_produto
+    rename to tb_produto_novo;
+alter table produto.tb_produto_novo
+    rename to tb_produto;
+
+/* selecionar informações da tabela */
+select *
+from information_schema.columns
+where table_name = 'tb_produto'
+  and table_catalog = 'mercado_y'
+  and table_schema = 'produto';
+
+/* renomer tabela */
+alter table produto.tb_produto rename column unidade_medida to um;
+alter table produto.tb_produto rename column um to unidade_medida;
