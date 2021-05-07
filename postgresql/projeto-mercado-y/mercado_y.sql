@@ -99,3 +99,11 @@ where table_name = 'tb_produto'
 /* renomer tabela */
 alter table produto.tb_produto rename column unidade_medida to um;
 alter table produto.tb_produto rename column um to unidade_medida;
+
+-- Tables parte 3 - Incluindo e removendo colunas em uma tabela já existente
+
+/* adicionar coluna a uma tabela existente*/
+alter table produto.tb_fabricante add column endereco varchar(200);
+
+/* remover coluna de uma tabela existente*/
+alter table produto.tb_fabricante drop column endereco;
