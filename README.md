@@ -34,3 +34,8 @@ The codes contained in the repository are written based on my learning in the co
 Diagram:
 
 ![](https://github.com/lipegomes/relational-databases-udemy-studies/blob/main/mysql/projeto-universidade-u/diagram/diagram_universidade_u.png)
+
+### Mercado-y
+
+![](https://github.com/lipegomes/relational-databases-udemy-studies/blob/main/postgresql/projeto-mercado-y/diagram/diagram_mercado_y.png)
+
