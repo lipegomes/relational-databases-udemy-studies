@@ -3501,5 +3501,26 @@ delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionar
 
 /* anomalias na atualização (informações inconsistentes) */
 update projeto_funcionario set nome_projeto = 'Inscrição Online' where codigo_projeto = 1 and matricula_funcionario = 95;
--- 2FN - Testando as dependências funcionais e corrigindo as anomalias
+--  Refactoring da tabela "projeto_funcionario" parte 1
+use universidade_u;
 
+create table projeto(
+	id_codigo int auto_increment,
+	data_criacao datetime default current_timestamp,
+	nome varchar(100) not null,
+	constraint pk_projeto primary key(id_codigo )
+);
+
+select * from projeto;
+desc projeto;
+
+create table funcionario(
+	id_matricula int auto_increment,
+	nome varchar(50) not null,
+	funcao varchar(50) not null,
+	telefone varchar(20),
+	constraint pk_funcionario primary key(id_matricula)
+);
+
+select * from funcionario;
+desc funcionario;
