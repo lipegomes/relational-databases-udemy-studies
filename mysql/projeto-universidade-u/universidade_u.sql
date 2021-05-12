@@ -3480,3 +3480,24 @@ values( 3,
 );
 
 select * from projeto_funcionario;
+-- Analisando as anomalias de inserção, atualização e remoção de registros
+use universidade_u;
+
+select * from projeto_funcionario;
+
+/* anomalias de inserção (redundância de dados, dados inconsistentes) */
+insert into projeto_funcionario(
+	codigo_projeto, matricula_funcionario, nome_projeto,
+	nome_funcionario, funcao_funcionario, telefone_funcionario, horas_estimadas
+)values(
+	2, 312, 'Economia de Papel',
+	'Jonas', 'Analista Financeiro', '01 90000-2163', 25)
+;
+
+desc projeto_funcionario;
+
+/* anomalias de exclusão (perder registros importantes) */
+delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionario = 78;
+
+/* anomalias na atualização (informações inconsistentes) */
+update projeto_funcionario set nome_projeto = 'Inscrição Online' where codigo_projeto = 1 and matricula_funcionario = 95;
