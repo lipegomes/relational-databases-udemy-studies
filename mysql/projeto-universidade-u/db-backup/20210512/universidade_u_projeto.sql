@@ -16,34 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aluno`
+-- Table structure for table `projeto`
 --
 
-DROP TABLE IF EXISTS `aluno`;
+DROP TABLE IF EXISTS `projeto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `aluno` (
-  `id_aluno` int NOT NULL AUTO_INCREMENT,
-  `cpf` varchar(14) NOT NULL,
-  `sexo` char(1) NOT NULL,
+CREATE TABLE `projeto` (
+  `id_codigo` int NOT NULL AUTO_INCREMENT,
+  `data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
   `nome` varchar(100) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `ativo_sn` int DEFAULT '1',
-  `data_nascimento` date NOT NULL,
-  PRIMARY KEY (`id_aluno`),
-  UNIQUE KEY `uc_aluno_cpf` (`cpf`),
-  UNIQUE KEY `uc_aluno_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`id_codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aluno`
+-- Dumping data for table `projeto`
 --
 
-LOCK TABLES `aluno` WRITE;
-/*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'000.000.000-01','M','James','james@foobar.com',1,'1989-05-01'),(2,'000.000.033-02','F','Mary','mary.cat@foobar.com',1,'2004-08-14'),(3,'000.000.011-00','M','John','johnjo@foobar.com',1,'1998-11-11'),(4,'000.000.000-45','F','Patricia','patpotato@foobar.com',1,'1985-06-28'),(5,'000.000.001-11','M','Robert','mr.robert@foobar.com',1,'1996-10-23'),(6,'000.000.066-12','F','Jennifer','jenni_lovelace@foobar.com',1,'2002-05-08'),(7,'000.000.000-88','M','Michael','michael@foobar.com',1,'1977-02-24'),(8,'000.000.000-67','F','Linda','lili@foobar.com',1,'2003-04-03'),(9,'000.000.003-22','M','Ohara','oha@foobar.com',1,'1983-11-08'),(10,'000.000.040-04','F','Lucy','lilu@foobar.com',0,'1985-06-22'),(11,'000.000.001-83','M','José','zezinho@foobar.com',1,'1990-07-12');
-/*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
+LOCK TABLES `projeto` WRITE;
+/*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 19:15:19
+-- Dump completed on 2021-05-12 19:18:47

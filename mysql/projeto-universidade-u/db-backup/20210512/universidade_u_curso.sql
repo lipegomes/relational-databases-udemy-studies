@@ -16,28 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `funcionario`
+-- Table structure for table `curso`
 --
 
-DROP TABLE IF EXISTS `funcionario`;
+DROP TABLE IF EXISTS `curso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `funcionario` (
-  `id_matricula` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `funcao` varchar(50) NOT NULL,
-  `telefone` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id_matricula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `curso` (
+  `id_curso` int NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_curso`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `funcionario`
+-- Dumping data for table `curso`
 --
 
-LOCK TABLES `funcionario` WRITE;
-/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+LOCK TABLES `curso` WRITE;
+/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES (1,'Desenvolvimento Mobile'),(2,'Lógica de programação'),(3,'Python e Django para Web'),(4,'Data Science'),(5,'Machine Learning'),(6,'Back end com Java e Kotlin'),(7,'Front End com React, Angular'),(8,'Linux Specialist'),(9,'DevSecOps');
+/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 19:15:20
+-- Dump completed on 2021-05-12 19:18:47
