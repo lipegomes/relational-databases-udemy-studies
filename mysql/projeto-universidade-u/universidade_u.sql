@@ -3501,3 +3501,5 @@ delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionar
 
 /* anomalias na atualização (informações inconsistentes) */
 update projeto_funcionario set nome_projeto = 'Inscrição Online' where codigo_projeto = 1 and matricula_funcionario = 95;
+-- 2FN - Testando as dependências funcionais e corrigindo as anomalias
+
