@@ -28,7 +28,7 @@ CREATE TABLE `funcionario` (
   `funcao` varchar(50) NOT NULL,
   `telefone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_matricula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=313 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+INSERT INTO `funcionario` VALUES (39,'Marcia','Gerente de Atendimento','01 90000-0111'),(95,'Pedro','Desenvolvedor Sênior','01 90000-0222'),(129,'Stefanie','Analista de Atendimento','01 90000-0555'),(184,'Lana','Analista de Qualidade','01 90000-0333'),(312,'Jonas','Analista Financeiro','01 90000-2163');
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-13 13:53:38
+-- Dump completed on 2021-05-13 14:54:49
