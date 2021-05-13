@@ -3630,3 +3630,23 @@ drop table projeto_funcionario;
 rename table projeto_funcionario2 to projeto_funcionario;
 
 select * from projeto_funcionario;
+-- Criando a tabela "disciplina" - Modelagem Conceitual, Lógica e Física
+use universidade_u;
+
+create table disciplina(
+	id_disciplina int auto_increment,
+	descricao varchar(50) not null,
+	carga_horaria int,
+	codigo_professor int,
+	nome_professor varchar(50),
+	email_professor varchar(100),
+	fk_id_curso int,
+	constraint pk_id_disciplina primary key(id_disciplina)
+);
+
+desc disciplina;
+
+alter table disciplina add constraint fk_curso_disciplina
+foreign key(fk_id_curso) references curso(id_curso);
+
+desc disciplina;
