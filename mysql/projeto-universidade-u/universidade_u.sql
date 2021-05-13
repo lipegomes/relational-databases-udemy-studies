@@ -3524,3 +3524,26 @@ create table funcionario(
 
 select * from funcionario;
 desc funcionario;
+-- Refactoring da tabela "projeto_funcionario" parte 2
+use universidade_u;
+
+desc funcionario;
+
+create table projeto_funcionario2(
+	fk_id_codigo int,
+	fk_id_matricula int,
+	horas_estimadas int not null,
+	horas_realizadas int,
+	constraint pk_projeto_funcionario
+	primary key(fk_id_codigo, fk_id_matricula)
+);
+
+desc projeto_funcionario2;
+
+alter table projeto_funcionario2 add constraint
+foreign key(fk_id_codigo) references projeto(id_codigo);
+
+alter table projeto_funcionario2 add constraint
+foreign key(fk_id_matricula) references funcionario(id_matricula);
+
+select * from projeto_funcionario;
