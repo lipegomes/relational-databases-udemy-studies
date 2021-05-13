@@ -27,7 +27,7 @@ CREATE TABLE `projeto` (
   `data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
   `nome` varchar(100) NOT NULL,
   PRIMARY KEY (`id_codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `projeto` (
 
 LOCK TABLES `projeto` WRITE;
 /*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
+INSERT INTO `projeto` VALUES (1,'2021-05-12 14:19:12','Inscrição Online'),(2,'2021-05-12 14:19:12','Economia de Papel');
 /*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-13 13:53:37
+-- Dump completed on 2021-05-13 14:54:48

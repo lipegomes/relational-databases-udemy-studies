@@ -3547,3 +3547,86 @@ alter table projeto_funcionario2 add constraint
 foreign key(fk_id_matricula) references funcionario(id_matricula);
 
 select * from projeto_funcionario;
+-- Refactoring da tabela "projeto_funcionario" parte 3
+use universidade_u;
+
+select * from projeto_funcionario;
+
+select * from funcionario;
+
+select
+	matricula_funcionario,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario
+from
+	projeto_funcionario;
+
+select * from projeto_funcionario;
+
+insert into projeto_funcionario(
+	codigo_projeto, matricula_funcionario, nome_projeto,
+	nome_funcionario, funcao_funcionario, telefone_funcionario, horas_estimadas
+)values(
+	2, 39, 'Economia de Papel', 'Marcia', 'Gerente de Atendimento', '01 90000-0111', 150
+);
+
+
+/* query para migração de registro de funcionários */
+insert into funcionario(id_matricula, nome, funcao, telefone)
+select distinct
+	matricula_funcionario,
+	nome_funcionario,
+	funcao_funcionario,
+	telefone_funcionario
+from
+	projeto_funcionario;
+
+select * from funcionario;
+
+select * from projeto;
+/* query para migração de registro de projeto */
+select distinct
+	codigo_projeto,
+	data_criacao_projeto,
+	nome_projeto
+from
+	projeto_funcionario;
+
+select * from projeto_funcionario where codigo_projeto =2 order by data_criacao_projeto limit 1;
+
+update projeto_funcionario set data_criacao_projeto = '2021-05-12 14:19:12' where codigo_projeto =2;
+
+insert into projeto(id_codigo, data_criacao, nome)
+select distinct
+	codigo_projeto,
+	data_criacao_projeto,
+	nome_projeto
+from
+	projeto_funcionario;
+
+select * from projeto;
+select * from funcionario;
+
+/* registro de relacionamentos entre as tabelas */
+select
+	codigo_projeto, matricula_funcionario, horas_estimadas, horas_realizadas
+from
+	projeto_funcionario;
+
+insert into projeto_funcionario2(
+	fk_id_codigo, fk_id_matricula, horas_estimadas, horas_realizadas
+)
+select
+	codigo_projeto, matricula_funcionario, horas_estimadas, horas_realizadas
+from
+	projeto_funcionario;
+
+select * from projeto_funcionario2;
+
+drop table projeto_funcionario;
+
+/* renomea a tabela */
+rename table projeto_funcionario2 to projeto_funcionario;
+
+select * from projeto_funcionario;
