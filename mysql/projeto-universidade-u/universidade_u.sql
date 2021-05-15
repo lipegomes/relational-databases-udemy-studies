@@ -3737,3 +3737,46 @@ select * from disciplina where codigo_professor = 344 and descricao = 'DevSecOps
 delete from disciplina where codigo_professor = 344 and descricao = 'DevSecOps';
 
 select * from disciplina;
+-- Refactoring da tabela "disciplina" parte 1
+use universidade_u;
+
+create table professor(
+	id_professor int auto_increment,
+	nome varchar(50) not null,
+	email varchar(100),
+	constraint pk_professor primary key(id_professor)
+);
+
+desc professor;
+
+select * from disciplina;
+
+select distinct
+	codigo_professor,
+	count(*) as repeticoes,
+	nome_professor,
+	email_professor
+from
+	disciplina
+group by
+	codigo_professor;
+
+insert into professor(
+	id_professor,
+	nome,
+	email
+)
+select distinct
+	codigo_professor,
+	nome_professor,
+	email_professor
+from
+	disciplina;
+	
+select * from professor;
+
+select * from disciplina;
+alter table disciplina drop column nome_professor;
+alter table disciplina drop column email_professor;
+
+select * from disciplina;
