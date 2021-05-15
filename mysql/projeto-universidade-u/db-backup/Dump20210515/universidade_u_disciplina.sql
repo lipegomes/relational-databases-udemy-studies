@@ -26,11 +26,13 @@ CREATE TABLE `disciplina` (
   `id_disciplina` int NOT NULL AUTO_INCREMENT,
   `descricao` varchar(50) NOT NULL,
   `carga_horaria` int DEFAULT NULL,
-  `codigo_professor` int DEFAULT NULL,
+  `fk_id_professor` int DEFAULT NULL,
   `fk_id_curso` int DEFAULT NULL,
   PRIMARY KEY (`id_disciplina`),
   KEY `fk_curso_disciplina` (`fk_id_curso`),
-  CONSTRAINT `fk_curso_disciplina` FOREIGN KEY (`fk_id_curso`) REFERENCES `curso` (`id_curso`)
+  KEY `fk_disciplina_professor` (`fk_id_professor`),
+  CONSTRAINT `fk_curso_disciplina` FOREIGN KEY (`fk_id_curso`) REFERENCES `curso` (`id_curso`),
+  CONSTRAINT `fk_disciplina_professor` FOREIGN KEY (`fk_id_professor`) REFERENCES `professor` (`id_professor`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-15 15:22:37
+-- Dump completed on 2021-05-15 15:38:23

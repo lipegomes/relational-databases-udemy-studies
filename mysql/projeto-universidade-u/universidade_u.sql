@@ -3780,3 +3780,17 @@ alter table disciplina drop column nome_professor;
 alter table disciplina drop column email_professor;
 
 select * from disciplina;
+-- Refactoring da tabela "disciplina" parte 2
+use universidade_u;
+
+select * from disciplina;
+
+alter table disciplina rename column codigo_professor to fk_id_codigo_professor;
+alter table disciplina rename column fk_id_codigo_professor to fk_id_professor;
+
+select * from disciplina;
+
+alter table disciplina add constraint fk_disciplina_professor
+foreign key(fk_id_professor) references professor(id_professor);
+
+desc disciplina;
