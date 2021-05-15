@@ -3650,3 +3650,90 @@ alter table disciplina add constraint fk_curso_disciplina
 foreign key(fk_id_curso) references curso(id_curso);
 
 desc disciplina;
+-- Analisando as anomalias de inserção, atualização e remoção de registros
+use universidade_u;
+
+select * from curso;
+
+select * from funcionario;
+
+select * from disciplina;
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Desenvolvimento Mobile', 150, 192, 'Carla', 'carla@universidadeu.com', 1
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Lógica de programação', 40, 82, 'Josefo', 'josefo@universidadeu.com', 2
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Python e Django para Web', 150, 68, 'Pedro', 'pedro@universidadeu.com', 3
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Desenvolvimento Data Science', 200, 381, 'Anna', 'anna@universidadeu.com', 4
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Machine Learning', 200, 380, 'Yasuki', 'yasuki@universidadeu.com', 5
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Back end com Java e Kotlin', 125, 99, 'Mark', 'mark@universidadeu.com', 6
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Front End com React, Angular', 130, 301, 'Jessica', 'jessica@universidadeu.com', 7
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Linux Specialist', 200, 50, 'Brian', 'brian@universidadeu.com', 8
+);
+
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'DevSecOps', 120, 344, 'Gadriel', 'gadriel@universidadeu.com', 9
+);
+
+select * from disciplina;
+
+/* anomalias de inserção (redundancia de dados, dados inconsistentes) */
+insert into disciplina (
+	descricao, carga_horaria, codigo_professor,
+	nome_professor, email_professor, fk_id_curso
+)values(
+	'Anomalia', 120, 5, 'Gadriel', 'gadriel05@universidadeu.com', 9
+);
+
+/* anomalias de exclusão (perder registros importantes) */
+select * from disciplina where codigo_professor = 344 and descricao = 'DevSecOps';
+delete from disciplina where codigo_professor = 344 and descricao = 'DevSecOps';
+
+select * from disciplina;
