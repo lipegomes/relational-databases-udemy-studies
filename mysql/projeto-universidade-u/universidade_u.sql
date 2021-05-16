@@ -3794,3 +3794,41 @@ alter table disciplina add constraint fk_disciplina_professor
 foreign key(fk_id_professor) references professor(id_professor);
 
 desc disciplina;
+-- Dicionário de dados - SGBD (Show Tables e Show Create Table)
+use universidade_u;
+
+/*
+ * 1) descrever as tabelas do banco
+ * 2) descrever oos atributos das tabelas
+ * 3) descrever os relacionamentos entre as tabelas
+ * */
+
+show tables;
+
+show create table aluno;
+
+/* CREATE TABLE `aluno` (
+  `id_aluno` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(14) NOT NULL,
+  `sexo` char(1) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `ativo_sn` int DEFAULT '1',
+  `data_nascimento` date NOT NULL,
+  PRIMARY KEY (`id_aluno`),
+  UNIQUE KEY `uc_aluno_cpf` (`cpf`),
+  UNIQUE KEY `uc_aluno_email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 */
+
+show create table telefone;
+
+/* CREATE TABLE `telefone` (
+  `id_telefone` int NOT NULL AUTO_INCREMENT,
+  `numero` varchar(20) NOT NULL,
+  `fk_id_aluno` int NOT NULL,
+  `tipo` enum('res','com','cel') NOT NULL,
+  PRIMARY KEY (`id_telefone`),
+  KEY `fk_aluno_telefone` (`fk_id_aluno`),
+  CONSTRAINT `fk_aluno_telefone` FOREIGN KEY (`fk_id_aluno`) REFERENCES `aluno` (`id_aluno`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 */
+
