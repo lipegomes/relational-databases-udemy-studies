@@ -9,8 +9,10 @@ valor_pago_curso float(10,
 2),
 nome varchar(25),
 ativo_sn int );
+
 -- usar o SCHEMA universidade_u
  use universidade_u;
+
 -- Insert - Inserindo registros em tabelas
  insert
 	into
@@ -163,6 +165,7 @@ values( 'M',
 1,
 'Rua da colina, 13, casa 13 - Rio de Janeiro - RJ',
 'Nikolas' );
+
 -- Select - Selecionando registro em tabelas
  use universidade_u;
 
@@ -177,6 +180,7 @@ select
 	telefone
 from
 	aluno;
+
 -- Select - Filtros com operadores de comparação
  use universidade_u;
 
@@ -233,6 +237,7 @@ from
 	aluno
 where
 	ativo_sn = '0';
+
 -- Select - Filtros com operadores Lógicos
  use universidade_u;
 
@@ -257,6 +262,7 @@ from
 where
 	sexo = 'F'
 	or idade >= 20;
+
 -- Select - Filtros com o operador Between
  use universidade_u;
 
@@ -273,6 +279,7 @@ from
 	aluno
 where
 	data_inscricao_curso between '2021-01-01' and '2021-04-21';
+
 -- Select - Filtros com o operadore In
  use universidade_u;
 
@@ -298,6 +305,7 @@ from
 	aluno
 where
 	nome not in ('Filipe', 'Katarina', 'Pedro');
+
 -- Select - Filtros com o operador Like
  use universidade_u;
 
@@ -356,6 +364,7 @@ from
 	aluno
 where
 	nome like '%n_';
+
 -- Select - Ordenando o resultado
  use universidade_u;
 
@@ -392,6 +401,7 @@ from
 order by
 	sexo asc,
 	idade desc;
+
 -- Update - Atualizando registros de tabelas
  use universidade_u;
 
@@ -420,6 +430,7 @@ set
 	telefone = '07 2123-4579'
 where
 	nome = 'Louise';
+
 -- Delete - Deletando registros de tabelas
  use universidade_u;
 
@@ -444,6 +455,7 @@ where
 delete
 from
 	aluno;
+
 -- Descrevendo e alterando a estrutura de tabelas
  use universidade_u;
 
@@ -466,6 +478,7 @@ alter table aluno modify column cpf varchar(14);
 alter table aluno drop column cpf;
 
 alter table aluno add cpf varchar(14) after email;
+
 -- 1FN - Trabalhando com chaves primárias simples
  use universidade_u;
 
@@ -608,6 +621,7 @@ from
 	aluno
 where
 	id_aluno = 1;
+
 --  1FN - Trabalhando com atributos Compostos
  use universidade_u;
 
@@ -728,6 +742,7 @@ select
 	*
 from
 	aluno;
+
 -- 1FN - Trabalhando com atributos Multivalorados
  use universidade_u;
 
@@ -801,6 +816,7 @@ select
 	*
 from
 	aluno;
+
 -- Cardinalidade 1:n - Modelagem Física
  use universidade_u;
 
@@ -835,6 +851,7 @@ from
 	telefone;
 
 desc telefone;
+
 -- Cardinalidade 1:n - Inserindo registros relacionados
  use universidade_u;
 
@@ -927,6 +944,7 @@ select
 	*
 from
 	telefone;
+
 -- Cardinalidade de Relacionamentos 1:1
  use universidade_u;
 
@@ -952,6 +970,7 @@ from
 	endereco;
 
 desc endereco;
+
 -- Cardinalidade 1:1 - Inserindo registros relacionados (com Insert/Select)
  use universidade_u;
 
@@ -1031,6 +1050,7 @@ where
 	fk_id_aluno = 7
 	or fk_id_aluno = 5
 	or fk_id_aluno = 4;
+
 -- Aumentando a complexidade do projeto
  use universidade_u;
 
@@ -1086,6 +1106,7 @@ select
 	*
 from
 	curso;
+
 -- Cardinalidade n:n - Modelagem Física
  use universidade_u;
 
@@ -1103,6 +1124,7 @@ alter table aluno_curso add constraint fk_aluno_curso foreign key(fk_id_aluno) r
 alter table aluno_curso add constraint fk_curso_aluno foreign key(fk_id_curso) references curso(id_curso);
 
 desc aluno_curso;
+
 --  Cardinalidade n:n - Inserindo registros relacionados
  use universidade_u;
 
@@ -1197,6 +1219,7 @@ select
 	*
 from
 	aluno_curso;
+
 -- Tipo de dado ENUM
  use universidade_u;
 
@@ -1302,6 +1325,7 @@ select
 	*
 from
 	telefone;
+
 -- NULL e NOT NULL
  use universidade_u;
 
@@ -1420,6 +1444,7 @@ select
 	*
 from
 	aluno_curso;
+
 -- Unique Constraint
  use universidade_u;
 
@@ -1433,6 +1458,7 @@ alter table aluno add constraint uc_aluno_cpf unique(cpf);
 alter table aluno add constraint uc_aluno_email unique(email);
 
 desc aluno;
+
 -- Cardinalidade 1:1 - Garantindo a restrição de 1 para 1 com Unique Constraint
  use universidade_u;
 
@@ -1482,6 +1508,7 @@ from
 alter table endereco add constraint uc_endereco_fk_id_aluno unique(fk_id_aluno);
 
 desc endereco;
+
 --  Select - Trabalhando com funções de agregação: Count, Max, Min, Avg e Sum
  use universidade_u;
 
@@ -1576,6 +1603,7 @@ from
 	aluno
 where
 	sexo = 'M';
+
 -- Select - Trabalhando com alias (apelidando colunas)
  use universidade_u;
 
@@ -1597,6 +1625,7 @@ from
 	aluno
 where
 	ativo_sn != 0;
+
 -- Select - Trabalhando com as funções Ceil, Floor, Truncate e Round
  use universidade_u;
 
@@ -1643,6 +1672,7 @@ from
 	aluno
 where
 	id_aluno in(2, 3, 5, 6);
+
 -- Select - Agrupando registros (Group by)
  use universidade_u;
 
@@ -1735,6 +1765,7 @@ from
 	endereco
 group by
 	estado;
+
 -- Projeto Universidade U - Atendendo aos demais requisitos do cliente
  use universidade_u;
 
@@ -1762,6 +1793,7 @@ select
 	distinct(fk_id_curso)
 from
 	aluno_curso;
+
 -- Recriando banco dados
  CREATE SCHEMA IF NOT EXISTS `universidade_u` DEFAULT CHARACTER SET
 utf8 ;
@@ -2567,6 +2599,7 @@ insert
 	fk_id_curso)
 values(8,
 6);
+
 -- Criando a tabela de controle de gastos mensais
 use universidade_u;
 
@@ -2589,6 +2622,7 @@ create table gasto(
 );
 
 select * from gasto;
+
 --Select - Projetando os resultados de operações aritméticas
 use universidade_u;
 
@@ -2745,6 +2779,7 @@ from
 	gasto
 where
 	id_gasto = 2;
+
 --  (Subquerys) Criando os indicadores de controle de gastos mensais
 use universidade_u;
 
@@ -2891,6 +2926,7 @@ select
 		where
 			ano = 2020
 			and tipo = 'realizado')) as realizado_set;
+
 --  Armazenando a data de nascimento
 use universidade_u;
 
@@ -2912,6 +2948,7 @@ update aluno set data_nascimento = '2003-04-03' where id_aluno = 8;
 alter table aluno modify column data_nascimento date not null;
 
 desc aluno;
+
 -- Select - Trabalhando com funções de data
 use universidade_u;
 
@@ -2967,6 +3004,7 @@ select period_diff('202109', '200109');
 /* retorna o dia do ano de uma determinada data */
 select dayofyear('2021-05-03');
 select dayofyear('2021-12-31');
+
 -- Calculando a idade com base na data atual e data de nascimento (TimeStamp)
 use universidade_u;
 
@@ -2994,6 +3032,7 @@ select
 	timestampdiff(YEAR, data_nascimento, curdate()) as idade
 	from
 	aluno;
+
 -- Selecionando aniversariantes do dia
 use universidade_u;
 
@@ -3061,6 +3100,7 @@ from
 where
 	extract(month from data_nascimento) = extract(month from curdate())
 	and extract(day from data_nascimento) = extract(day from curdate());
+
 --  Refactoring da data de inscrição no curso e valor pago - parte 1
 use universidade_u;
 
@@ -3070,6 +3110,7 @@ alter table aluno_curso add data_inscricao_curso date;
 alter table aluno_curso add valor_pago_curso float(10, 2);
 
 select * from aluno_curso;
+
 --  Refactoring da data de inscrição no curso e valor pago - parte 2
 use universidade_u;
 
@@ -3250,6 +3291,7 @@ alter table aluno drop column data_inscricao_curso;
 alter table aluno drop column valor_pago_curso;
 
 select* from aluno;
+
 -- Default – Valores padrões
 use universidade_u;
 
@@ -3348,6 +3390,7 @@ values(11,
 820);
 
 select * from aluno_curso;
+
 -- Primary Key Simples e Primary Key Composta
 use universidade_u;
 
@@ -3359,6 +3402,7 @@ alter table aluno_curso add constraint pk_aluno_curso primary key(fk_id_aluno,
 fk_id_curso, data_inscricao_curso);
 
 desc aluno_curso;
+
 -- Criando a tabela "projeto_funcionario" e inserindo registros iniciais
 use universidade_u;
 
@@ -3480,6 +3524,7 @@ values( 3,
 );
 
 select * from projeto_funcionario;
+
 -- Analisando as anomalias de inserção, atualização e remoção de registros
 use universidade_u;
 
@@ -3501,6 +3546,7 @@ delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionar
 
 /* anomalias na atualização (informações inconsistentes) */
 update projeto_funcionario set nome_projeto = 'Inscrição Online' where codigo_projeto = 1 and matricula_funcionario = 95;
+
 --  Refactoring da tabela "projeto_funcionario" parte 1
 use universidade_u;
 
@@ -3524,6 +3570,7 @@ create table funcionario(
 
 select * from funcionario;
 desc funcionario;
+
 -- Refactoring da tabela "projeto_funcionario" parte 2
 use universidade_u;
 
@@ -3547,6 +3594,7 @@ alter table projeto_funcionario2 add constraint
 foreign key(fk_id_matricula) references funcionario(id_matricula);
 
 select * from projeto_funcionario;
+
 -- Refactoring da tabela "projeto_funcionario" parte 3
 use universidade_u;
 
@@ -3630,6 +3678,7 @@ drop table projeto_funcionario;
 rename table projeto_funcionario2 to projeto_funcionario;
 
 select * from projeto_funcionario;
+
 -- Criando a tabela "disciplina" - Modelagem Conceitual, Lógica e Física
 use universidade_u;
 
@@ -3650,6 +3699,7 @@ alter table disciplina add constraint fk_curso_disciplina
 foreign key(fk_id_curso) references curso(id_curso);
 
 desc disciplina;
+
 -- Analisando as anomalias de inserção, atualização e remoção de registros
 use universidade_u;
 
@@ -3737,6 +3787,7 @@ select * from disciplina where codigo_professor = 344 and descricao = 'DevSecOps
 delete from disciplina where codigo_professor = 344 and descricao = 'DevSecOps';
 
 select * from disciplina;
+
 -- Refactoring da tabela "disciplina" parte 1
 use universidade_u;
 
@@ -3780,6 +3831,7 @@ alter table disciplina drop column nome_professor;
 alter table disciplina drop column email_professor;
 
 select * from disciplina;
+
 -- Refactoring da tabela "disciplina" parte 2
 use universidade_u;
 
@@ -3794,6 +3846,7 @@ alter table disciplina add constraint fk_disciplina_professor
 foreign key(fk_id_professor) references professor(id_professor);
 
 desc disciplina;
+
 -- Dicionário de dados - SGBD (Show Tables e Show Create Table)
 use universidade_u;
 
@@ -3832,3 +3885,34 @@ show create table telefone;
   CONSTRAINT `fk_aluno_telefone` FOREIGN KEY (`fk_id_aluno`) REFERENCES `aluno` (`id_aluno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 */
 
+-- Relacionamentos: Nomeação e tipos Unário, Binário e Ternário
+use universidade_u;
+
+select * from funcionario;
+
+alter table funcionario add column fk_id_matricula_supervisor int;
+
+alter table funcionario add constraint fk_funcionario_supervisor
+foreign key(fk_id_matricula_supervisor) references funcionario(id_matricula);
+
+desc funcionario;
+
+update funcionario set fk_id_matricula_supervisor = 39 where id_matricula = 129;
+
+select * from funcionario;
+
+insert into funcionario(
+	nome, funcao, telefone
+)values(
+	'Sebastian', 'Gerente Sênior TI', '01 90000-0004'
+);
+
+update funcionario set fk_id_matricula_supervisor = 313 where id_matricula = 95;
+
+select * from funcionario;
+
+update funcionario set fk_id_matricula_supervisor = 39 where id_matricula in (184, 312);
+
+select * from funcionario;
+
+select * from funcionario where fk_id_matricula_supervisor = 39;
