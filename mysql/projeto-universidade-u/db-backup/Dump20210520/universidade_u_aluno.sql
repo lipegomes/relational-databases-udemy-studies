@@ -28,8 +28,8 @@ CREATE TABLE `aluno` (
   `sexo` char(1) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `ativo_sn` int DEFAULT '1',
   `data_nascimento` date NOT NULL,
+  `ativo_sn` int DEFAULT '1',
   PRIMARY KEY (`id_aluno`),
   UNIQUE KEY `uc_aluno_cpf` (`cpf`),
   UNIQUE KEY `uc_aluno_email` (`email`)
@@ -42,7 +42,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'000.000.000-01','M','James','james@foobar.com',1,'1989-05-01'),(2,'000.000.033-02','F','Mary','mary.cat@foobar.com',1,'2004-08-14'),(3,'000.000.011-00','M','John','johnjo@foobar.com',1,'1998-11-11'),(4,'000.000.000-45','F','Patricia','patpotato@foobar.com',1,'1985-06-28'),(5,'000.000.001-11','M','Robert','mr.robert@foobar.com',1,'1996-10-23'),(6,'000.000.066-12','F','Jennifer','jenni_lovelace@foobar.com',1,'2002-05-08'),(7,'000.000.000-88','M','Michael','michael@foobar.com',1,'1977-02-24'),(8,'000.000.000-67','F','Linda','lili@foobar.com',1,'2003-04-03'),(9,'000.000.003-22','M','Ohara','oha@foobar.com',1,'1983-11-08'),(10,'000.000.040-04','F','Lucy','lilu@foobar.com',0,'1985-06-22'),(11,'000.000.001-83','M','José','zezinho@foobar.com',1,'1990-07-12');
+INSERT INTO `aluno` VALUES (1,'000.000.000-01','M','James','james@foobar.com','1989-05-01',1),(2,'000.000.033-02','F','Mary','mary.cat@foobar.com','2004-08-14',1),(3,'000.000.011-00','M','John','johnjo@foobar.com','1998-11-11',1),(4,'000.000.000-45','F','Patricia','patpotato@foobar.com','1985-06-28',1),(5,'000.000.001-11','M','Robert','mr.robert@foobar.com','1996-10-23',1),(6,'000.000.066-12','F','Jennifer','jenni_lovelace@foobar.com','2002-05-08',1),(7,'000.000.000-88','M','Michael','michael@foobar.com','1977-02-24',1),(8,'000.000.000-67','F','Linda','lili@foobar.com','2003-04-03',1),(9,'000.000.003-22','M','Ohara','oha@foobar.com','1983-11-08',1),(10,'000.000.040-04','F','Lucy','lilu@foobar.com','1985-06-22',0),(11,'000.000.001-83','M','José','zezinho@foobar.com','1990-07-12',1);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-20 15:12:40
+-- Dump completed on 2021-05-20 15:33:17
