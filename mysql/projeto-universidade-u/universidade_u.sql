@@ -3943,3 +3943,18 @@ update funcionario set id_matricula = 2 where id_matricula = 315;
 select max(id_matricula) + 1 from funcionario;
 
 alter table funcionario auto_increment = 3;
+
+-- Modificando a ordem de uma coluna na tabela
+use universidade_u;
+
+select * from aluno;
+
+desc aluno;
+
+show create table aluno;
+
+alter table aluno modify `ativo_sn` int DEFAULT '1' after data_nascimento;
+
+select * from aluno;
+
+desc aluno;
