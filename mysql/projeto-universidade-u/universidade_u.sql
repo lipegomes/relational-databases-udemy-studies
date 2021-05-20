@@ -3927,3 +3927,19 @@ truncate table gasto;
 select * from gasto;
 
 select * from telefone;
+
+-- Ajustando o valor do auto_increment
+use universidade_u;
+
+select * from funcionario;
+
+insert into funcionario(nome, funcao, telefone)
+values('Pirlo', 'Chief Executive Officer', '01 90000-1000');
+
+insert into funcionario(id_matricula, nome, funcao, telefone)
+values(1, 'Mark', 'Board Member', '01 90000-3310');
+update funcionario set id_matricula = 2 where id_matricula = 315;
+
+select max(id_matricula) + 1 from funcionario;
+
+alter table funcionario auto_increment = 3;
