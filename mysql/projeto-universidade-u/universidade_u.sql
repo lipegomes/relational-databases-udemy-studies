@@ -3916,3 +3916,14 @@ update funcionario set fk_id_matricula_supervisor = 39 where id_matricula in (18
 select * from funcionario;
 
 select * from funcionario where fk_id_matricula_supervisor = 39;
+
+-- Zerando os registros de uma tabela com Truncate
+use universidade_u;
+
+select * from gasto;
+
+truncate table gasto;
+
+select * from gasto;
+
+select * from telefone;
