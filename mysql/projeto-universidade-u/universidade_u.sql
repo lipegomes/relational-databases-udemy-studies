@@ -3958,3 +3958,64 @@ alter table aluno modify `ativo_sn` int DEFAULT '1' after data_nascimento;
 select * from aluno;
 
 desc aluno;
+
+--Populando tabelas com massas de dados de testes
+use universidade_u;
+
+select * from professor;
+
+desc professor;
+
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Price","ac.libero.nec@placerat.co.uk"),("Breanna","non.egestas.a@dictumeueleifend.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Denton","sed.facilisis@Praesenteu.com"),("Edan","gravida.sit.amet@accumsan.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Shannon","lorem@Duissit.org"),("Jordan","diam@ametrisusDonec.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Tallulah","elit@Nulla.com"),("Debra","eget@MaurisnullaInteger.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Jael","urna.Ut@purusaccumsaninterdum.com"),("Robert","lacus.Quisque.imperdiet@id.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Brock","Nullam.nisl@Sedpharetrafelis.com"),("Raven","lectus.justo@egestashendreritneque.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Chloe","vestibulum@in.ca"),("Hakeem","et.magnis@liberoMorbiaccumsan.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Brianna","elit.Aliquam.auctor@quisurnaNunc.edu"),("Martha","orci@id.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Mariam","pede@et.net"),("Axel","Nam@Nullam.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Scott","fames.ac.turpis@urnaUt.com"),("Reece","ipsum.primis@diamluctuslobortis.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Dalton","tempor.bibendum@magna.com"),("Brody","sagittis.semper@magnamalesuadavel.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("John","risus.at@bibendumullamcorper.com"),("Nasim","sagittis@malesuada.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Zephania","mauris@consectetuermauris.ca"),("Basia","mauris@lectuspede.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Elliott","luctus@Lorem.edu"),("Iola","nec.urna@egetmetusIn.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Wang","placerat@Maecenasmifelis.com"),("Alden","Nunc.mauris@nonlobortis.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Stacey","in.magna.Phasellus@nonummyipsum.org"),("Acton","mi.lacinia@ultricies.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Gillian","aliquet@pedePraesenteu.org"),("Nehru","ut.eros@feugiatnon.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Aurora","malesuada.fringilla@aarcu.ca"),("Tiger","semper.erat.in@quisdiamPellentesque.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Steel","eget.laoreet@Namtempordiam.ca"),("Brendan","est.tempor.bibendum@ultricies.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Stacy","fringilla.purus@euismodenimEtiam.net"),("Herman","vitae.sodales.nisi@vulputateposuerevulputate.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Tanner","augue.porttitor.interdum@velmaurisInteger.edu"),("Kaitlin","orci.tincidunt.adipiscing@amet.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Margaret","natoque@mauris.ca"),("Aladdin","ligula.Nullam@infelisNulla.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Naida","eget.mollis.lectus@velit.co.uk"),("Steel","dictum@mauris.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Jenette","pellentesque@estmaurisrhoncus.net"),("Harper","luctus.ipsum@velit.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Ishmael","consectetuer.adipiscing.elit@vulputate.org"),("Maia","convallis.dolor.Quisque@mifelis.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Tana","at.fringilla.purus@ullamcorpereu.net"),("Walter","dictum.placerat.augue@elitdictum.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Acton","adipiscing.lacus@adipiscing.edu"),("Ryder","Phasellus.fermentum.convallis@nisiCum.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Yardley","nec.eleifend@Praesenteudui.edu"),("Clio","egestas.lacinia@urna.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Wing","Aliquam.nec@mauris.edu"),("Sheila","parturient.montes@tortor.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Ariel","mauris.ut.mi@aceleifendvitae.co.uk"),("Honorato","non@semmollisdui.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Wyoming","Proin@vulputateeuodio.ca"),("Germaine","iaculis.aliquet@pedenecante.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Nolan","ornare@utnulla.org"),("Angelica","dis.parturient.montes@eratvelpede.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Sylvia","Nam.nulla@velitAliquamnisl.ca"),("Jeremy","dui.nec@mollis.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Maisie","nec.eleifend@semPellentesqueut.co.uk"),("Larissa","montes@temporestac.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Dillon","lobortis.nisi@atauctor.co.uk"),("Amethyst","molestie@nonmagna.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Sonia","vitae.risus@pretiumnequeMorbi.com"),("Burke","ante.iaculis.nec@sapienimperdietornare.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Neil","cursus.diam@Integer.net"),("Brenden","lectus.sit.amet@nibh.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Holly","euismod@Loremipsum.net"),("Melvin","ullamcorper.eu.euismod@blanditNamnulla.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Remedios","interdum.libero@egetlaoreetposuere.com"),("Zia","tellus.faucibus.leo@Proinnisl.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Geraldine","nascetur@aliquamiaculis.ca"),("Yoshio","ornare.lectus@luctuslobortisClass.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Keegan","sed.dui@augue.org"),("Prescott","blandit.Nam@risus.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Jacqueline","mauris.erat.eget@convallisdolor.co.uk"),("Benedict","non@eget.org");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Shannon","eleifend.non@nislelementum.com"),("Kameko","lorem.vehicula@gravidasitamet.co.uk");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Wing","enim.nisl@maurisutmi.ca"),("Kasper","vitae@Donecporttitor.ca");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Raymond","consectetuer@Sed.ca"),("Jared","semper.tellus.id@blandit.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Mercedes","ut@elementum.edu"),("Deacon","ullamcorper.magna@auctor.net");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Indira","In@et.net"),("Philip","sit@Quisquepurus.com");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Jonah","vulputate.mauris.sagittis@interdumSedauctor.ca"),("Ezekiel","felis@non.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Brennan","Nunc@DonecegestasDuis.net"),("Tobias","ac.eleifend.vitae@massaQuisqueporttitor.edu");
+INSERT INTO `professor` (`nome`,`email`) VALUES ("Kennedy","Curabitur@purus.net"),("Liberty","lacus.Nulla@et.co.uk");
+
+select * from professor;
+
