@@ -4019,3 +4019,47 @@ INSERT INTO `professor` (`nome`,`email`) VALUES ("Kennedy","Curabitur@purus.net"
 
 select * from professor;
 
+-- JOIN - Junção à esquerda (LEFT JOIN)
+
+use universidade_u;
+
+show tables;
+
+select * from aluno;
+select * from telefone;
+
+/*
+ * Left Join
+ * 
+ * Juntar informações em uma única consulta
+ * 
+ */
+select
+	*
+from
+	aluno left join telefone on (aluno.id_aluno  = telefone.fk_id_aluno);
+
+ select
+	*
+from
+	aluno left join telefone on (aluno.id_aluno  = telefone.fk_id_aluno)
+where
+	sexo = 'F';
+
+select * from curso;
+select * from disciplina;
+select * from professor;
+
+select
+	*
+from
+	curso left join disciplina on ( curso.id_curso = disciplina.fk_id_curso)
+	left join professor on (disciplina.fk_id_professor = professor.id_professor);
+
+select
+	*
+from
+	curso left join disciplina on ( curso.id_curso = disciplina.fk_id_curso)
+	left join professor on (disciplina.fk_id_professor = professor.id_professor)
+where
+	id_curso = 2;
