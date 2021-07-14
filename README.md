@@ -12,7 +12,7 @@ The codes contained in the repository are written based on my learning in the co
 
 - [MySQL Workbench](https://www.mysql.com/products/workbench/)
 - [Pgadmin4](https://www.pgadmin.org/)
-- [SQL Server Management Studio](https://docs.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+- [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 - [Dbeaver](https://dbeaver.io/)
 - [DataGrip](https://www.jetbrains.com/datagrip/)
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -20,6 +20,7 @@ The codes contained in the repository are written based on my learning in the co
 ### Tools:
 
 - [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
 
 ### Data Bases:
 
@@ -27,3 +28,9 @@ The codes contained in the repository are written based on my learning in the co
 - [PostgreSQL](https://www.postgresql.org/)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 - [Oracle SQL](https://www.oracle.com/br/database/technologies/appdev/sql.html)
+
+Data bases in docker hub:
+
+- [MySQL](https://hub.docker.com/_/mysql)
+- [PostgreSQL](https://hub.docker.com/_/postgres)
+- [SQL Server](https://hub.docker.com/_/microsoft-mssql-server)
