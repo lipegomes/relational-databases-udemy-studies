@@ -4110,3 +4110,51 @@ select * from disciplina as d inner join professor as p on (d.fk_id_professor = 
 select * from endereco as e inner join aluno as a on (e.fk_id_aluno = a.id_aluno);
 	
 select * from telefone as t inner join aluno as a on (t.fk_id_aluno = a.id_aluno);
+
+-- UNION e UNION ALL - Unindo resultados
+
+/*
+ * union - distinct
+ * union - não faz distinct
+ * /
+
+/* mesmo número de colunas */
+select 100, 500
+union all
+select 100, 300
+union all
+select 500, 700;
+
+/* mesma ordem */
+select 100 as c1, 200 as c2, 'palmito' as c3
+union all
+select 500, 'pastel', 800;
+
+/* union (distinct) x union all */
+select 'morango' as c1
+union
+select 'uva'
+union all
+select 'morango'
+union all
+select 'abacaxi'
+order by c1;
+
+/* enviar um e-mail para todos os alunos e professores */
+select email, 'aluno' from aluno where sexo = 'f'
+union /*distinct*/
+select email, 'professor' from professor where id_professor in (2,4,6,8)
+order by email;
+
+-- JOIN - Junção externa completa com UNION (FULL OUTER JOIN)
+select
+    *
+from
+    disciplina as d 
+    left join professor as p on (d.fk_id_professor = p.id_professor)
+union /* faz a união entre os registros das consultas (distinct) */
+select
+    *
+from
+    disciplina as d 
+    right join professor as p on (d.fk_id_professor = p.id_professor);
