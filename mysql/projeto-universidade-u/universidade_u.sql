@@ -4082,3 +4082,23 @@ from
 	left join professor on (d.fk_id_professor = professor.id_professor)
 where /* seleção de um subconjunto */
 	id_curso = 4;
+
+-- JOIN - Junção à direita (RIGHT JOIN)
+
+select * from curso;
+select * from disciplina;
+
+select
+	*
+from
+	curso as c left join disciplina d on (c.id_curso = d.fk_id_curso);
+	
+select
+	*
+from
+	curso as c right join disciplina d on (c.id_curso = d.fk_id_curso);
+
+ select
+ 	*
+ from
+ 	telefone as t right join aluno as a on (t.fk_id_aluno = a.id_aluno);
