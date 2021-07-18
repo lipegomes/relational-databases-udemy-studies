@@ -4063,3 +4063,22 @@ from
 	left join professor on (disciplina.fk_id_professor = professor.id_professor)
 where
 	id_curso = 2;
+
+
+-- Seleção, projeção, junções, apelidos e ambiguidades
+
+use universidade_u;
+
+select /* projeção */
+	id_curso,
+	c.descricao as curso,
+	id_disciplina,
+	d.descricao as disciplina,
+	id_professor,
+	nome,
+	now() as data_atual
+from
+	curso as c left join disciplina as d on ( c.id_curso = d.fk_id_curso)
+	left join professor on (d.fk_id_professor = professor.id_professor)
+where /* seleção de um subconjunto */
+	id_curso = 4;
