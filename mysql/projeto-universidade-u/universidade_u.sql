@@ -4102,3 +4102,11 @@ from
  	*
  from
  	telefone as t right join aluno as a on (t.fk_id_aluno = a.id_aluno);
+
+-- JOIN - Junção interna (INNER JOIN)
+
+select * from disciplina as d inner join professor as p on (d.fk_id_professor = p.id_professor);
+
+select * from endereco as e inner join aluno as a on (e.fk_id_aluno = a.id_aluno);
+	
+select * from telefone as t inner join aluno as a on (t.fk_id_aluno = a.id_aluno);
