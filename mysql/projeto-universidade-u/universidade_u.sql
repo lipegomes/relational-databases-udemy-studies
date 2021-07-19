@@ -4171,3 +4171,22 @@ end
 $$
 
 CALL proc_oi();
+
+-- Consultando, alterando e removendo Procedures
+
+/* listar procedures do bd */
+show procedure status where Db = 'universidade_u';
+
+/* mostrar o conteúdo da procedure */
+show create procedure universidade_u.proc_oi;
+
+/* alterar a procudure -> remover a procedure e criar novamente */
+
+drop procedure universidade_u.proc_oi;
+
+CREATE PROCEDURE `proc_oi`()
+begin
+	select 'Oi, a procedure foi modificada.' as msg;
+end
+
+call proc_oi();
