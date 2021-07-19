@@ -4158,3 +4158,16 @@ select
 from
     disciplina as d 
     right join professor as p on (d.fk_id_professor = p.id_professor);
+
+-- Criando e chamando a nossa primeira Procedure
+
+use universidade_u;
+
+delimiter $$
+create procedure proc_oi()
+begin
+	select 'O procedimento executado está armazenado no banco de dados' as msg;
+end
+$$
+
+CALL proc_oi();
