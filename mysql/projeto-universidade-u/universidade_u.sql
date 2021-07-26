@@ -4190,3 +4190,38 @@ begin
 end
 
 call proc_oi();
+
+-- Definindo parâmetros de entrada
+
+use universidade_u;
+
+delimiter $$
+create procedure proc_media_ponderada(
+	in nome varchar(100),
+	in p1 float(3, 1),
+	in p2 float(3, 1),
+	in p3 float(3, 1),
+	in p4 float(3, 1)
+)
+comment 'Efetua o cálculo de média ponderada: ((p1*2)+(p2*2)+(p3*3)+(p4*4)) / 10'
+begin
+	/* nome do aluno, média ponderada */
+	select
+		nome,
+		round( (((p1*1)+(p2*2)+(p3*3)+(p4*4)) / 10), 1) as 'media_ponderada';
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+
+call proc_media_ponderada('Filipe', 9,10,8,10);
+call proc_media_ponderada('Barbara', 10,8.5,9,9);
+call proc_media_ponderada('João', 5.5,8,7,8);
+call proc_media_ponderada('Paula', 8,10,8,9);
+call proc_media_ponderada('Clara', 9,9,8,10);
+call proc_media_ponderada('Pedro', 7,5,9,10);
+
+/* comando para dropar a procedure se necessário */
+drop procedure universidade_u.proc_media_ponderada;
