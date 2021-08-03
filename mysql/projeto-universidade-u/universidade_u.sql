@@ -4250,3 +4250,28 @@ show procedure status where Db = 'universidade_u';
 call proc_resumo(@x, @y);
 
 select @x as total_professores, @y as total_alunos;
+
+-- Declarando variáveis do escopo da sessão
+
+set @nome = 'José';
+set @sobrenome = 'Zé';
+set @idade = 45;
+set @país = 'Brasil';
+set @estado = 'Rio de Janeiro';
+set @cidade = '	Rio de Janeiro';
+set @saldoPoupancaJulho = 865;
+set @rendimentoAgosto = 0.024
+
+
+select @nome;
+select @sobrenome;
+select @idade;
+
+/* Calcula o ganho da poupança em agosto utilizando a taxa de rendimento de agosto de 0,24%(0.024)*/
+set @ganhoPoupancaAgosto = @saldoPoupancaJulho * @rendimentoAgosto;
+/* Retorna o ganho da poupança em agosto */
+select @ganhoPoupancaAgosto as 'Ganho Poupança em Agosto';
+/* Calcula o saldo da poupança em agosto somando o saldo em julho com o ganho gerado em agosto */
+set @saldoPoupancaAgosto = @saldoPoupancaJulho + @ganhoPoupancaAgosto;
+/* Retorna o saldo da poupança em agosto */
+select @saldoPoupancaAgosto as 'Saldo Poupança em Agosto';
