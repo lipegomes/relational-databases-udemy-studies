@@ -4258,16 +4258,16 @@ set @sobrenome = 'Zé';
 set @idade = 45;
 set @país = 'Brasil';
 set @estado = 'Rio de Janeiro';
-set @cidade = 'Rio de Janeiro';
+set @cidade = '	Rio de Janeiro';
 set @saldoPoupancaJulho = 865;
-set @rendimentoAgosto = 0.024
+set @rendimentoAgosto = 0.0024;
 
 
 select @nome;
 select @sobrenome;
 select @idade;
 
-/* Calcula o ganho da poupança em agosto utilizando a taxa de rendimento de agosto de 0,24%(0.024)*/
+/* Calcula o ganho da poupança em agosto utilizando a taxa de rendimento de agosto de 0,24%(0.0024)*/
 set @ganhoPoupancaAgosto = @saldoPoupancaJulho * @rendimentoAgosto;
 /* Retorna o ganho da poupança em agosto */
 select @ganhoPoupancaAgosto as 'Ganho Poupança em Agosto';
