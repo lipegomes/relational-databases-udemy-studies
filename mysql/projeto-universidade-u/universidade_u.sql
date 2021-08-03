@@ -4258,7 +4258,7 @@ set @sobrenome = 'Zé';
 set @idade = 45;
 set @país = 'Brasil';
 set @estado = 'Rio de Janeiro';
-set @cidade = '	Rio de Janeiro';
+set @cidade = ' Rio de Janeiro';
 set @saldoPoupancaJulho = 865;
 set @rendimentoAgosto = 0.024
 
