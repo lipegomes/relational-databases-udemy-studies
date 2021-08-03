@@ -4225,3 +4225,28 @@ call proc_media_ponderada('Pedro', 7,5,9,10);
 
 /* comando para dropar a procedure se necessário */
 drop procedure universidade_u.proc_media_ponderada;
+
+-- Definindo parâmetros de saída
+
+use universidade_u;
+
+/* total de alunos e professores */
+delimiter $$
+create procedure proc_resumo(out total_professores int, out total_alunos int)
+comment 'Resumo do total de alunos e professores'
+begin
+	/* total de professores */
+	select count(*) into total_professores from professor;
+	/* total de alunos */
+	select count(*) into total_alunos from aluno;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+
+/* referências para os parâmetros de saída */
+call proc_resumo(@x, @y);
+
+select @x as total_professores, @y as total_alunos;
