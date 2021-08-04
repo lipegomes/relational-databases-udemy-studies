@@ -4368,3 +4368,37 @@ set @param2 = 'Parâmetro 2';
 select @param2;
 call proc_variaveis_escopo_parametro(100, @param2);
 select @param2;
+
+-- Definindo parâmetros de entrada e saída
+
+delimiter $$
+create procedure proc_exemplo_parametros(
+	/* Parâmetro de entrada */
+	in param1 int,
+	/* Parâmetro de saída */
+	out param2 varchar(50),
+	/* Acumula os parâmetros de entrada e saída permitindo alterar o valor da variável de sessão */
+	inout param3 float(3,1)
+)
+begin
+	select param1, param2, param3;
+	set param2 = 'O parâmetro 2 foi modificado';
+	set param3 = 11.7;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+set @p1 = 200;
+set @p2 = 'Parâmetro 2';
+set @p3 = 25.5;
+
+select @p1,@p2, @p3;
+
+call proc_exemplo_parametros(@p1, @p2, @p3);
+
+/* comando para dropar a procedure proc_exemplo_parametros */
+drop procedure universidade_u.proc_exemplo_parametros;
+
+select @p1,@p2, @p3;
