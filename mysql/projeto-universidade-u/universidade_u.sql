@@ -4520,3 +4520,55 @@ delimiter ;
 show procedure status where Db = 'universidade_u';
 
 call proc_case();
+
+-- Estruturas de decisão (CASE) parte 2
+
+delimiter $$
+create procedure proc_case2()
+comment 'Usando case em uma estrutura de decisão'
+begin
+	declare opcao int default 0;
+	/* sintaxe alternativa */
+	case
+		when opcao = 1 then select 'pedra';
+		when opcao = 2 then select 'papel';
+		when opcao = 3 then select 'tesoura';
+		else
+			select "Para jogar é necessário utilizar gestos de pedra, papel ou tesoura";
+	end case;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+call proc_case2();
+
+/* comando para dropar a procedure proc_case2 */
+drop procedure universidade_u.proc_case2;
+
+
+delimiter $$
+create procedure proc_case_data()
+comment 'Usando case em uma estrutura de decisão'
+begin
+	declare data_teste date;
+	set data_teste = curdate();
+	/* sintaxe alternativa */
+	case
+		when data_teste = curdate() then select curdate() as 'Data atual', data_teste, 'Presente';
+		when data_teste < curdate() then select curdate() as 'Data atual', data_teste, 'Passado';
+		when data_teste > curdate() then select curdate() as 'Data atual', data_teste, 'Futuro';
+		else
+			select "Nenhuma das opções anteriores";
+	end case;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+call proc_case_data();
+
+/* comando para dropar a procedure proc_case2 */
+drop procedure universidade_u.proc_case2;
