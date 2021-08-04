@@ -4328,3 +4328,25 @@ call proc_variaveis_escopo_local2;
 
 /* comando para dropar a procedure proc_variaveis_escopo_local2 se necessário */
 drop procedure universidade_u.proc_variaveis_escopo_local2;
+
+-- Atribuindo valores de consultas a variáveis de escopo local
+
+select * from professor;
+
+delimiter $$
+create procedure proc_variaveis_escopo_local3()
+begin
+	declare total_professores int;
+
+	# set total_professores = (select count(*) from professor);
+	select count(*) into total_professores from professor;
+	select total_professores as 'Total professores';
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+call proc_variaveis_escopo_local3;
+
+/* comando para dropar a procedure proc_variaveis_escopo_local3 se necessário */
+drop procedure universidade_u.proc_variaveis_escopo_local3;
