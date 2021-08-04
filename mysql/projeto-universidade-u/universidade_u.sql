@@ -4461,3 +4461,39 @@ call proc_ifelse_aluno();
 
 /* comando para dropar a procedure proc_ifelse_aluno */
 drop procedure universidade_u.proc_ifelse_aluno;
+
+--  Estruturas de decisão (IF / ELSE) parte 2
+
+delimiter $$
+create procedure proc_ifelse_pessoa()
+comment 'Usando if else para retornar uma pessoa em função da faixa etária'
+begin
+	
+	declare idade int;
+	
+	set idade = (select
+		timestampdiff(year, data_nascimento, curdate())
+	from
+		aluno
+	where
+		id_aluno = 7);
+
+	if idade >= 0 and idade <= 15 THEN
+		select 'Criança';
+	elseif idade > 15 and idade <= 29 THEN
+		select 'Jovem';
+	elseif idade > 29 and idade <= 59 THEN
+		select 'Adulto';
+	else
+		select 'Idoso';
+	end if;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+call proc_ifelse_pessoa();
+
+/* comando para dropar a procedure proc_ifelse_pessoa */
+drop procedure universidade_u.proc_ifelse_pessoa;
