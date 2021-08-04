@@ -4497,3 +4497,26 @@ call proc_ifelse_pessoa();
 
 /* comando para dropar a procedure proc_ifelse_pessoa */
 drop procedure universidade_u.proc_ifelse_pessoa;
+
+-- Estruturas de decisão (CASE) parte 1
+
+delimiter $$
+create procedure proc_case()
+comment 'Usando case em uma estrutura de decisão'
+begin
+	declare opcao int default 1;
+	/* sintaxe simples */
+	case opcao
+		when 1 then select 'pedra';
+		when 2 then select 'papel';
+		when 3 then select 'tesoura';
+		else
+			select "Para jogar é necessário utilizar gestos de pedra, papel ou tesoura";
+	end case;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+call proc_case();
