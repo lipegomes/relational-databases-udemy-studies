@@ -4402,3 +4402,62 @@ call proc_exemplo_parametros(@p1, @p2, @p3);
 drop procedure universidade_u.proc_exemplo_parametros;
 
 select @p1,@p2, @p3;
+
+-- Estruturas de decisão (IF / ELSE) parte 1
+
+delimiter $$
+create procedure proc_ifelse()
+comment 'Usando condicionais ifelse'
+begin
+	declare idade int default 17;
+ 	declare sexo char(1) default 'M';
+ 
+	if idade >= 18 and sexo = 'M' THEN
+		select 'Usuário maior de idade do sexo masculino';
+	end if;
+
+	if idade < 18 and sexo = 'M' THEN
+		select 'Usuário menor de idade do sexo masculino';
+	end if;
+
+	if idade >= 18 and sexo = 'F' THEN
+		select 'Usuário maior de idade do sexo feminino';
+	end if;
+
+	if idade < 18 and sexo = 'F' THEN
+		select 'Usuário menor de idade do sexo feminino';
+	end if;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+call proc_ifelse();
+
+/* comando para dropar a procedure proc_ifelse */
+drop procedure universidade_u.proc_ifelse;
+
+
+select * from aluno;
+
+delimiter $$
+create procedure proc_ifelse_aluno()
+comment 'Usando if else para retornar um ou mais alunos'
+begin
+	if (select sexo from aluno where id_aluno = 2) = 'M' THEN
+		select 'Aluno do sexo masculino';
+	else
+		select 'Aluno do sexo feminino';
+	end if;
+end
+$$
+delimiter ;
+
+
+show procedure status where Db = 'universidade_u';
+
+call proc_ifelse_aluno();
+
+/* comando para dropar a procedure proc_ifelse_aluno */
+drop procedure universidade_u.proc_ifelse_aluno;
