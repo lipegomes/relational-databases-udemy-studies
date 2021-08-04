@@ -4289,3 +4289,42 @@ set @idaluno = (select id_aluno from aluno where cpf = @cpf);
 /* recupera o registro de telefeones dos alunos */
 select @idaluno;
 select * from telefone where fk_id_aluno = @idaluno;
+
+-- Declarando variáveis de escopo local
+
+/* tipagem fraca */
+set @nome = 'Filipe';
+set @nome = 2021;
+select @nome;
+
+/* tipagem forte */
+delimiter $$
+create procedure proc_variaveis_escopo_local1()
+begin
+	declare x int default 10;
+select x as variavel_escopo_local;
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+call proc_variaveis_escopo_local1;
+
+delimiter !!
+create procedure proc_variaveis_escopo_local2()
+begin
+	declare y int default 7;
+	declare arara float(5,2);
+
+	set arara = 0.90;
+
+	select arara as variavel_escopo_local2;
+end
+!!
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+call proc_variaveis_escopo_local2;
+
+/* comando para dropar a procedure proc_variaveis_escopo_local2 se necessário */
+drop procedure universidade_u.proc_variaveis_escopo_local2;
