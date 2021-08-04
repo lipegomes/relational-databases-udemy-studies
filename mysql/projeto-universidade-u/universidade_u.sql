@@ -4275,3 +4275,17 @@ select @ganhoPoupancaAgosto as 'Ganho Poupança em Agosto';
 set @saldoPoupancaAgosto = @saldoPoupancaJulho + @ganhoPoupancaAgosto;
 /* Retorna o saldo da poupança em agosto */
 select @saldoPoupancaAgosto as 'Saldo Poupança em Agosto';
+
+-- Atribuindo valores de consultas a variáveis de escopo da sessão
+
+use universidade_u;
+
+select * from aluno;
+
+/* declara uma variável que contém um cpf de um aluno */
+set @cpf = '000.000.001-11';
+/* descobre id do aluo */
+set @idaluno = (select id_aluno from aluno where cpf = @cpf);
+/* recupera o registro de telefeones dos alunos */
+select @idaluno;
+select * from telefone where fk_id_aluno = @idaluno;
