@@ -4572,3 +4572,22 @@ call proc_case_data();
 
 /* comando para dropar a procedure proc_case2 */
 drop procedure universidade_u.proc_case2;
+
+-- CASE em colunas de consultas
+
+use universidade_u;
+
+select
+	a.id_aluno,
+	a.cpf,
+	a.nome,
+	a.sexo,
+	case
+		when a.sexo = 'M' then 'Masculino'
+		# when a.sexo = 'F' then 'Feminino'
+		else 'Feminino'
+	end as descricao_sexo,
+	t.numero, 
+	t.tipo
+from
+	aluno as a left join telefone as t on (a.id_aluno = t.fk_id_aluno);
