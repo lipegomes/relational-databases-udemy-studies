@@ -4622,3 +4622,40 @@ show procedure status where Db = 'universidade_u';
 select * from log;
 
 call proc_while();
+
+-- Estruturas de repetição (LOOP)
+
+delimiter $$
+create procedure proc_loop()
+comment 'Usando loop em uma estrutura de iteraçao do laço de repetição'
+begin
+
+	declare z int default 1;
+	declare resultado varchar(20);
+	
+	loop_tabuada: loop
+		set resultado = concat('2 x ', z, ' = ', (2*z));
+		/* armazena resultado da tabuada do número 2 na tabela log */
+		insert into log(log)value(resultado);
+		set z = z + 1;
+		if z > 10  then
+			leave loop_tabuada;
+		end if;
+		
+	end loop loop_tabuada;
+		
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+select * from log;
+
+truncate table log;
+
+call proc_loop();
+
+
+/* comando para dropar a procedure proc_loop */
+drop procedure universidade_u.proc_loop;
