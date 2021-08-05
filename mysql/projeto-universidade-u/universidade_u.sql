@@ -4591,3 +4591,34 @@ select
 	t.tipo
 from
 	aluno as a left join telefone as t on (a.id_aluno = t.fk_id_aluno);
+
+-- Estruturas de repetição (WHILE)
+
+create table log(
+	id_log int primary key auto_increment,
+	log varchar(255)
+);
+
+select * from log;
+
+delimiter $$
+create procedure proc_while()
+comment 'Usando while em uma estrutura de iteraçao do laço de repetição'
+begin
+		
+	declare contador int default 1;
+
+	while contador < 10 do
+		insert into log(log)values(contador);
+		set contador = contador + 1;
+	end while;
+		
+end
+$$
+delimiter ;
+
+show procedure status where Db = 'universidade_u';
+
+select * from log;
+
+call proc_while();
