@@ -26,7 +26,7 @@ CREATE TABLE `log` (
   `id_log` int NOT NULL AUTO_INCREMENT,
   `log` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `log` (
 
 LOCK TABLES `log` WRITE;
 /*!40000 ALTER TABLE `log` DISABLE KEYS */;
-INSERT INTO `log` VALUES (1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9');
+INSERT INTO `log` VALUES (1,'5 x 1 = 5'),(2,'5 x 2 = 10'),(3,'5 x 3 = 15'),(4,'5 x 4 = 20'),(5,'5 x 5 = 25'),(6,'5 x 6 = 30'),(7,'5 x 7 = 35'),(8,'5 x 8 = 40'),(9,'5 x 9 = 45'),(10,'5 x 10 = 50');
 /*!40000 ALTER TABLE `log` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-05 12:27:21
+-- Dump completed on 2021-08-05 15:24:04
