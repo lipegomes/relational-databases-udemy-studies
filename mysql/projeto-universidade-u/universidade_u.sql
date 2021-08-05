@@ -4659,3 +4659,30 @@ call proc_loop();
 
 /* comando para dropar a procedure proc_loop */
 drop procedure universidade_u.proc_loop;
+
+-- Estruturas de repetição (REPEAT)
+
+delimiter $$
+create procedure proc_repeat()
+comment 'Usando o repeat em uma estrutura de repetição'
+begin
+	
+	declare z int default 1;
+	declare resultado varchar(20);
+	
+	repeat
+		set resultado = concat('5 x ', z, ' = ', (5*z));
+		/* armazena resultado da tabuada do número 5 na tabela log */
+		insert into log(log)value(resultado);
+		set z = z + 1;
+	until z > 10 end repeat;
+
+end
+$$
+delimiter ;
+
+show pocedure status where Db = 'universidade_u';
+
+truncate table log;
+select * from log;
+call proc_repeat();
